@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# REPLACE: swap to your actual domain once hosted.
+Sitemap: https://alexsavageauthor.com/sitemap.xml

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  REPLACE: swap https://alexsavageauthor.com with your actual domain once hosted.
+  REPLACE: update <lastmod> on deploys.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemaps-image/1.1">
+
+  <url>
+    <loc>https://alexsavageauthor.com/</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://alexsavageauthor.com/assets/og-card.jpg</image:loc>
+      <image:title>Alex Savage — Haremlit Author</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://alexsavageauthor.com/assets/covers/ua1.jpg</image:loc>
+      <image:title>Undercover Archmage Book 1</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://alexsavageauthor.com/assets/covers/wa1.jpg</image:loc>
+      <image:title>The WarMage of Arkley Book 1</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://alexsavageauthor.com/#books</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://alexsavageauthor.com/#about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://alexsavageauthor.com/#patreon</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
