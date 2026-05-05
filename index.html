@@ -76,7 +76,7 @@
       "alternateName": "Undercover Archmage",
       "description": "A black-ops operator on the run from a government hit squad takes cover as Professor of Defensive Magics at Ravenwick Academy. He's a Null — magic-immune, off the spectrum — which makes him invisible to the wards and a beacon to the most dangerous women on campus.",
       "author": { "@id": "https://alexsavageauthor.com/#author" },
-      "numberOfItems": 3,
+      "numberOfItems": 4,
       "genre": ["Action Haremlit", "Magic Academy", "Hardboiled Fantasy"]
     },
     {
@@ -118,6 +118,17 @@
       "inLanguage": "en",
       "url": "https://www.amazon.com/Undercover-Archmage-Ravenwick-Academy-Book-ebook/dp/B0GPZVZ7CG",
       "image": "https://alexsavageauthor.com/assets/covers/ua3.jpg"
+    },
+    {
+      "@type": "Book",
+      "name": "Undercover Archmage 4: Ravenwick Academy Book 4",
+      "author": { "@id": "https://alexsavageauthor.com/#author" },
+      "isPartOf": { "@id": "https://alexsavageauthor.com/#series-undercover-archmage" },
+      "bookFormat": "https://schema.org/EBook",
+      "bookEdition": "Pre-order",
+      "inLanguage": "en",
+      "url": "https://www.amazon.com/dp/B0GZCJ6JC5",
+      "image": "https://alexsavageauthor.com/assets/covers/ua4.jpg"
     },
     {
       "@type": "Book",
@@ -944,13 +955,12 @@
     .launch-title em { font-size: 15px; }
   }
 
-  /* "NEW" badge on more-row thumbnails */
+  /* Badges on more-row thumbnails */
   .series-card .more-row a.thumb { position: relative; }
-  .series-card .more-row a.thumb.is-new::after {
-    content: "NEW";
+  .series-card .more-row a.thumb.is-new::after,
+  .series-card .more-row a.thumb.is-preorder::after {
     position: absolute;
     top: -7px; right: -10px;
-    background: var(--coral);
     color: #2A0A11;
     font-size: 9px;
     font-weight: 800;
@@ -961,6 +971,16 @@
     transform: rotate(10deg);
     z-index: 2;
     pointer-events: none;
+  }
+  .series-card .more-row a.thumb.is-new::after {
+    content: "NEW";
+    background: var(--coral);
+  }
+  .series-card .more-row a.thumb.is-preorder::after {
+    content: "PREORDER";
+    background: var(--gold);
+    letter-spacing: 0.06em;
+    padding: 3px 7px;
   }
 
 </style>
@@ -984,16 +1004,16 @@
 </nav>
 
 <!-- ════════════ LAUNCH BANNER ════════════ -->
-<a class="launch-banner" href="https://www.amazon.com/dp/B0GTQYLMQW" target="_blank" rel="noopener" aria-label="Just released — The WarMage of Arkley 2 on Amazon">
+<a class="launch-banner" href="https://www.amazon.com/dp/B0GZCJ6JC5" target="_blank" rel="noopener" aria-label="Preorder Undercover Archmage 4 on Amazon">
   <div class="container launch-row">
     <span class="launch-thumb">
-      <img src="assets/covers/wa2.jpg" alt="" />
+      <img src="assets/covers/ua4.jpg" alt="" />
     </span>
     <span class="launch-text">
-      <span class="launch-tag">★ Just Released</span>
-      <span class="launch-title"><em>The WarMage of Arkley 2</em> is out now on Kindle Unlimited</span>
+      <span class="launch-tag">★ Preorder Now</span>
+      <span class="launch-title"><em>Undercover Archmage 4</em> — available to preorder on Amazon</span>
     </span>
-    <span class="launch-arrow">Read on Amazon →</span>
+    <span class="launch-arrow">Preorder on Amazon →</span>
   </div>
 </a>
 
@@ -1044,7 +1064,7 @@
       <!-- ─── Undercover Archmage ─── -->
       <article class="series-card reveal" id="series-undercover-archmage">
         <div class="hero-cover">
-          <span class="badge">Book 1 of 3 · Ongoing</span>
+          <span class="badge">Book 1 of 4 · Ongoing</span>
           <img src="assets/covers/ua1.jpg" alt="Undercover Archmage Book 1 cover — Alex Savage" />
         </div>
         <div>
@@ -1066,6 +1086,9 @@
             </a>
             <a class="thumb" href="https://www.amazon.com/Undercover-Archmage-Ravenwick-Academy-Book-ebook/dp/B0GPZVZ7CG" target="_blank" rel="noopener" aria-label="Undercover Archmage Book 3">
               <img src="assets/covers/ua3.jpg" alt="Undercover Archmage Book 3" />
+            </a>
+            <a class="thumb is-preorder" href="https://www.amazon.com/dp/B0GZCJ6JC5" target="_blank" rel="noopener" aria-label="Undercover Archmage Book 4 — available to preorder">
+              <img src="assets/covers/ua4.jpg" alt="Undercover Archmage Book 4 — preorder cover" />
             </a>
           </div>
           <p class="cross-link">Want stakes that move at school-run speed? Try <a href="#series-warmage-arkley">The WarMage of Arkley</a> — a System-interface apocalypse with marshmallows.</p>
@@ -1092,8 +1115,8 @@
           </div>
           <div class="more-row">
             <span class="label">Also in this series:</span>
-            <a class="thumb is-new" href="https://www.amazon.com/WarMage-Arkley-Slice-Apocalyptic-Adventure-ebook/dp/B0GTQYLMQW" target="_blank" rel="noopener" aria-label="The WarMage of Arkley Book 2 — just released">
-              <img src="assets/covers/wa2.jpg" alt="The WarMage of Arkley Book 2 — just released" />
+            <a class="thumb" href="https://www.amazon.com/WarMage-Arkley-Slice-Apocalyptic-Adventure-ebook/dp/B0GTQYLMQW" target="_blank" rel="noopener" aria-label="The WarMage of Arkley Book 2">
+              <img src="assets/covers/wa2.jpg" alt="The WarMage of Arkley Book 2" />
             </a>
           </div>
           <p class="cross-link">Prefer your action with tradecraft? <a href="#series-undercover-archmage">Undercover Archmage</a> swaps the dimensional tear for a 9mm and a class of grad-student glass cannons.</p>
