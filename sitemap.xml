@@ -1,46 +1,153 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  REPLACE: swap https://alexsavageauthor.com with your actual domain once hosted.
-  REPLACE: update <lastmod> on deploys.
--->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
   <url>
     <loc>https://alexsavageauthor.com/</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://alexsavageauthor.com/assets/og-card.jpg</image:loc>
+      <image:loc>https://alexsavageauthor.com/assets/og/og-home.jpg</image:loc>
       <image:title>Alex Savage — Haremlit Author</image:title>
     </image:image>
-    <image:image>
-      <image:loc>https://alexsavageauthor.com/assets/covers/ua1.jpg</image:loc>
-      <image:title>Undercover Archmage Book 1</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://alexsavageauthor.com/assets/covers/wa1.jpg</image:loc>
-      <image:title>The WarMage of Arkley Book 1</image:title>
-    </image:image>
   </url>
 
   <url>
-    <loc>https://alexsavageauthor.com/#books</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://alexsavageauthor.com/#about</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://alexsavageauthor.com/#patreon</loc>
+    <loc>https://alexsavageauthor.com/press.html</loc>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://alexsavageauthor.com/assets/og/og-press.jpg</image:loc>
+      <image:title>Alex Savage — Press &amp; Media Kit</image:title>
+    </image:image>
+  </url>
+
+  <!-- Series pages -->
+  <url>
+    <loc>https://alexsavageauthor.com/the-ravenwick-chronicle.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://alexsavageauthor.com/assets/og/og-series-ravenwick.jpg</image:loc>
+      <image:title>The Ravenwick Chronicle — Series</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://alexsavageauthor.com/the-warmage-of-arkley.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://alexsavageauthor.com/assets/og/og-series-warmage.jpg</image:loc>
+      <image:title>The WarMage of Arkley — Series</image:title>
+    </image:image>
+  </url>
+
+  <!-- Individual book pages -->
+  <url>
+    <loc>https://alexsavageauthor.com/undercover-archmage.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://alexsavageauthor.com/assets/covers/ua1.jpg</image:loc>
+      <image:title>Undercover Archmage — Book 1</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://alexsavageauthor.com/undercover-archmage-2.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://alexsavageauthor.com/assets/covers/ua2.jpg</image:loc>
+      <image:title>Undercover Archmage 2</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://alexsavageauthor.com/undercover-archmage-3.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://alexsavageauthor.com/assets/covers/ua3.jpg</image:loc>
+      <image:title>Undercover Archmage 3</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://alexsavageauthor.com/undercover-archmage-4.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://alexsavageauthor.com/assets/covers/ua4.jpg</image:loc>
+      <image:title>Undercover Archmage 4 — Preorder</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://alexsavageauthor.com/the-warmage-of-arkley-1.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://alexsavageauthor.com/assets/covers/wa1.jpg</image:loc>
+      <image:title>The WarMage of Arkley — Book 1</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://alexsavageauthor.com/the-warmage-of-arkley-2.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://alexsavageauthor.com/assets/covers/wa2.jpg</image:loc>
+      <image:title>The WarMage of Arkley 2</image:title>
+    </image:image>
+  </url>
+
+  <!-- Subgenre landing pages -->
+  <url>
+    <loc>https://alexsavageauthor.com/magic-academy-haremlit.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://alexsavageauthor.com/assets/og/og-magic-academy-haremlit.jpg</image:loc>
+      <image:title>Magic Academy Haremlit</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://alexsavageauthor.com/system-apocalypse-haremlit.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://alexsavageauthor.com/assets/og/og-system-apocalypse-haremlit.jpg</image:loc>
+      <image:title>System Apocalypse Haremlit</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://alexsavageauthor.com/single-dad-litrpg.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://alexsavageauthor.com/assets/og/og-single-dad-litrpg.jpg</image:loc>
+      <image:title>Single-Dad LitRPG</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://alexsavageauthor.com/action-haremlit.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://alexsavageauthor.com/assets/og/og-action-haremlit.jpg</image:loc>
+      <image:title>Action Haremlit</image:title>
+    </image:image>
   </url>
 
 </urlset>
