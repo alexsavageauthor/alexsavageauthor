@@ -13,17 +13,6 @@
     </image:image>
   </url>
 
-  <url>
-    <loc>https://alexsavageauthor.com/press.html</loc>
-    <lastmod>2026-05-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://alexsavageauthor.com/assets/og/og-press.jpg</image:loc>
-      <image:title>Alex Savage — Press &amp; Media Kit</image:title>
-    </image:image>
-  </url>
-
   <!-- Series pages -->
   <url>
     <loc>https://alexsavageauthor.com/the-ravenwick-chronicle.html</loc>
