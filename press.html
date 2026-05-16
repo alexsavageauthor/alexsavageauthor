@@ -150,9 +150,14 @@
   .bio-block { background: rgba(255,126,148,0.06); border: 1px solid rgba(255,126,148,0.25); border-left: 3px solid var(--coral); border-radius: 10px; padding: 22px 26px; margin: 18px 0; }
   .bio-block .label { font-family: "Caveat", cursive; color: var(--coral); font-size: 18px; margin-bottom: 8px; }
   .bio-block p { margin: 0; font-size: 15.5px; line-height: 1.7; }
-  .quick-facts { display: grid; grid-template-columns: max-content 1fr; gap: 10px 28px; margin: 18px 0; font-size: 15px; line-height: 1.6; }
-  .quick-facts .label { font-family: "Inter", sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold); font-weight: 600; padding-top: 3px; }
+  .quick-facts { display: grid; grid-template-columns: 180px 1fr; gap: 14px 32px; margin: 22px 0; font-size: 15px; line-height: 1.6; align-items: start; }
+  .quick-facts .label { font-family: "Inter", sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold); font-weight: 600; padding-top: 4px; }
   .quick-facts .value { color: var(--cream); }
+  @media (max-width: 640px) {
+    .quick-facts { grid-template-columns: 1fr; gap: 4px 0; }
+    .quick-facts .label { padding-top: 14px; }
+    .quick-facts .label:first-child { padding-top: 0; }
+  }
   .press-covers { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 16px; margin: 22px 0; }
   .press-cover { display: flex; flex-direction: column; gap: 8px; }
   .press-cover img { width: 100%; aspect-ratio: 2/3; object-fit: cover; border-radius: 4px; box-shadow: 0 6px 18px rgba(0,0,0,0.5); }
@@ -197,7 +202,6 @@
     <div class="quick-facts">
       <div class="label">Pen name</div><div class="value">Alex Savage — pen name. Kept that way on purpose.</div>
       <div class="label">Genre</div><div class="value">Action haremlit · Magic-academy fantasy · System-apocalypse LitRPG</div>
-      <div class="value-spacer"></div>
       <div class="label">Series</div><div class="value">The Ravenwick Chronicle (Undercover Archmage) &middot; The WarMage of Arkley (A Slice-of-Life Apocalypse)</div>
       <div class="label">Books in print</div><div class="value">6 (4 in Ravenwick Chronicle, 2 in WarMage of Arkley) — all on Kindle Unlimited</div>
       <div class="label">Pre-order</div><div class="value">Undercover Archmage 4 — open now</div>
