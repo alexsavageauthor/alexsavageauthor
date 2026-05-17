@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+  <!--
+    Alex Savage monogram mark.
+    For: favicon, social avatar, watermark, signature stamp, anywhere ≤256px.
+    The painterly hooded portrait handles all uses where personality fits.
+    This mark just needs to be unmistakable at small sizes.
+  -->
+
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&amp;display=swap');
+      .mono { font-family: 'Fraunces', Georgia, serif; font-weight: 700; }
+    </style>
+  </defs>
+
+  <!-- Circular base, brand primary-deep -->
+  <circle cx="120" cy="120" r="118" fill="#160C24"/>
+
+  <!-- Inner gold ring -->
+  <circle cx="120" cy="120" r="110" fill="none" stroke="#E8B756" stroke-width="1.5" opacity="0.9"/>
+
+  <!-- AS monogram, brand cream, optically centered -->
+  <text x="120" y="158" text-anchor="middle" class="mono" font-size="120" fill="#F5EFE6" letter-spacing="-0.04em">AS</text>
+</svg>

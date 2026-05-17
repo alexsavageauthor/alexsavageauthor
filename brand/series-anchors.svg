@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" font-family="Fraunces, Georgia, serif">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@600&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&amp;display=swap');
+      .series-name { font-family: 'Fraunces', Georgia, serif; font-weight: 600; }
+      .meta { font-family: 'Inter', sans-serif; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; font-size: 11px; }
+    </style>
+  </defs>
+
+  <rect width="800" height="400" fill="#160C24"/>
+
+  <text x="40" y="50" class="meta" fill="#B1A2CC">Series identity layer · color anchors</text>
+
+  <!-- UA series example -->
+  <g transform="translate(40, 80)">
+    <rect width="340" height="280" rx="12" fill="#271847"/>
+    <text x="170" y="50" text-anchor="middle" class="meta" fill="#E8B756">THE RAVENWICK CHRONICLE</text>
+    <text x="170" y="100" text-anchor="middle" class="series-name" font-size="32" fill="#F5EFE6">Undercover</text>
+    <text x="170" y="140" text-anchor="middle" class="series-name" font-size="32" fill="#F5EFE6">Archmage</text>
+    <!-- Gold anchor rule -->
+    <line x1="100" y1="170" x2="240" y2="170" stroke="#E8B756" stroke-width="3" stroke-linecap="round"/>
+    <text x="170" y="200" text-anchor="middle" class="meta" fill="#B1A2CC">by</text>
+    <text x="170" y="232" text-anchor="middle" class="series-name" font-size="22" fill="#F5EFE6">Alex Savage</text>
+    <text x="170" y="262" text-anchor="middle" class="meta" fill="#B1A2CC" letter-spacing="0.3em">#E8B756 · GOLD</text>
+  </g>
+
+  <!-- WA series example -->
+  <g transform="translate(420, 80)">
+    <rect width="340" height="280" rx="12" fill="#271847"/>
+    <text x="170" y="50" text-anchor="middle" class="meta" fill="#FF7E94">THE WARMAGE OF ARKLEY</text>
+    <text x="170" y="100" text-anchor="middle" class="series-name" font-size="32" fill="#F5EFE6">A Slice-of-Life</text>
+    <text x="170" y="140" text-anchor="middle" class="series-name" font-size="32" fill="#F5EFE6">Apocalypse</text>
+    <!-- Coral anchor rule -->
+    <line x1="100" y1="170" x2="240" y2="170" stroke="#FF7E94" stroke-width="3" stroke-linecap="round"/>
+    <text x="170" y="200" text-anchor="middle" class="meta" fill="#B1A2CC">by</text>
+    <text x="170" y="232" text-anchor="middle" class="series-name" font-size="22" fill="#F5EFE6">Alex Savage</text>
+    <text x="170" y="262" text-anchor="middle" class="meta" fill="#B1A2CC" letter-spacing="0.3em">#FF7E94 · CORAL</text>
+  </g>
+</svg>

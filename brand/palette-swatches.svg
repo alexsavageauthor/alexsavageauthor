@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" font-family="Inter, -apple-system, sans-serif">
+  <defs>
+    <style>
+      .label { font-size: 16px; font-weight: 600; fill: #F5EFE6; }
+      .hex { font-size: 13px; font-weight: 400; fill: #B1A2CC; letter-spacing: 0.04em; }
+      .role { font-size: 11px; font-weight: 500; fill: #B1A2CC; text-transform: uppercase; letter-spacing: 0.12em; }
+      .title { font-family: "Fraunces", Georgia, serif; font-size: 36px; font-weight: 600; fill: #F5EFE6; }
+      .subtitle { font-size: 14px; fill: #B1A2CC; letter-spacing: 0.08em; text-transform: uppercase; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="720" fill="#160C24"/>
+
+  <!-- Header -->
+  <text x="60" y="80" class="title">Alex Savage — Brand Palette</text>
+  <text x="60" y="108" class="subtitle">Refined system · May 2026</text>
+
+  <!-- Row 1: Deep / Surface tones -->
+  <g transform="translate(60, 160)">
+    <text x="0" y="-16" class="role">Foundation</text>
+
+    <g transform="translate(0,0)">
+      <rect width="200" height="120" rx="8" fill="#160C24" stroke="#E8B756" stroke-width="1" opacity="1"/>
+      <text x="16" y="80" class="label">primary-deep</text>
+      <text x="16" y="100" class="hex">#160C24</text>
+    </g>
+    <g transform="translate(220,0)">
+      <rect width="200" height="120" rx="8" fill="#1F1336"/>
+      <text x="16" y="80" class="label">primary-mid</text>
+      <text x="16" y="100" class="hex">#1F1336</text>
+    </g>
+    <g transform="translate(440,0)">
+      <rect width="200" height="120" rx="8" fill="#271847"/>
+      <text x="16" y="80" class="label">surface-1</text>
+      <text x="16" y="100" class="hex">#271847</text>
+    </g>
+    <g transform="translate(660,0)">
+      <rect width="200" height="120" rx="8" fill="#321F58"/>
+      <text x="16" y="80" class="label">surface-2</text>
+      <text x="16" y="100" class="hex">#321F58</text>
+    </g>
+    <g transform="translate(880,0)">
+      <rect width="200" height="120" rx="8" fill="#1A0F2C" stroke="#E8B756" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <text x="16" y="80" class="label">cover-band</text>
+      <text x="16" y="100" class="hex">#1A0F2C</text>
+    </g>
+  </g>
+
+  <!-- Row 2: Accents -->
+  <g transform="translate(60, 340)">
+    <text x="0" y="-16" class="role">Accents</text>
+
+    <g transform="translate(0,0)">
+      <rect width="200" height="120" rx="8" fill="#E8B756"/>
+      <text x="16" y="80" class="label" fill="#160C24">brand-gold</text>
+      <text x="16" y="100" class="hex" fill="#1F1336">#E8B756</text>
+    </g>
+    <g transform="translate(220,0)">
+      <rect width="200" height="120" rx="8" fill="#F4D27A"/>
+      <text x="16" y="80" class="label" fill="#160C24">gold-soft</text>
+      <text x="16" y="100" class="hex" fill="#1F1336">#F4D27A</text>
+    </g>
+    <g transform="translate(440,0)">
+      <rect width="200" height="120" rx="8" fill="#FF7E94"/>
+      <text x="16" y="80" class="label" fill="#160C24">brand-coral</text>
+      <text x="16" y="100" class="hex" fill="#1F1336">#FF7E94</text>
+    </g>
+    <g transform="translate(660,0)">
+      <rect width="200" height="120" rx="8" fill="#FFB1BD"/>
+      <text x="16" y="80" class="label" fill="#160C24">coral-soft</text>
+      <text x="16" y="100" class="hex" fill="#1F1336">#FFB1BD</text>
+    </g>
+  </g>
+
+  <!-- Row 3: Neutrals -->
+  <g transform="translate(60, 520)">
+    <text x="0" y="-16" class="role">Neutrals</text>
+
+    <g transform="translate(0,0)">
+      <rect width="200" height="120" rx="8" fill="#F5EFE6"/>
+      <text x="16" y="80" class="label" fill="#160C24">brand-cream</text>
+      <text x="16" y="100" class="hex" fill="#1F1336">#F5EFE6</text>
+    </g>
+    <g transform="translate(220,0)">
+      <rect width="200" height="120" rx="8" fill="#B1A2CC"/>
+      <text x="16" y="80" class="label" fill="#160C24">muted-lavender</text>
+      <text x="16" y="100" class="hex" fill="#1F1336">#B1A2CC</text>
+    </g>
+  </g>
+
+  <!-- Series anchor strips on right -->
+  <g transform="translate(660, 520)">
+    <text x="0" y="-16" class="role">Series Anchors</text>
+
+    <g transform="translate(0,0)">
+      <rect width="200" height="120" rx="8" fill="#271847"/>
+      <rect y="56" width="200" height="8" fill="#E8B756"/>
+      <text x="16" y="32" class="label">UA series</text>
+      <text x="16" y="50" class="hex">Gold rule</text>
+      <text x="16" y="100" class="hex">#E8B756</text>
+    </g>
+    <g transform="translate(220,0)">
+      <rect width="200" height="120" rx="8" fill="#271847"/>
+      <rect y="56" width="200" height="8" fill="#FF7E94"/>
+      <text x="16" y="32" class="label">WA series</text>
+      <text x="16" y="50" class="hex">Coral rule</text>
+      <text x="16" y="100" class="hex">#FF7E94</text>
+    </g>
+  </g>
+</svg>

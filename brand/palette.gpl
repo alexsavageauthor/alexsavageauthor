@@ -1,0 +1,15 @@
+GIMP Palette
+Name: Alex Savage Brand
+Columns: 4
+#
+ 22  12  36	primary-deep #160C24
+ 31  19  54	primary-mid #1F1336
+ 39  24  71	surface-1 #271847
+ 50  31  88	surface-2 #321F58
+232 183  86	brand-gold #E8B756
+244 210 122	gold-soft #F4D27A
+255 126 148	brand-coral #FF7E94
+255 177 189	coral-soft #FFB1BD
+245 239 230	brand-cream #F5EFE6
+177 162 204	muted-lavender #B1A2CC
+ 26  15  44	cover-band #1A0F2C

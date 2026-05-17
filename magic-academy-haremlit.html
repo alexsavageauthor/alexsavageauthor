@@ -92,8 +92,8 @@
   nav.site { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(14px); background: rgba(22, 12, 36, 0.72); border-bottom: 1px solid var(--line); }
   nav.site .row { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
   nav.site .brand { display: flex; align-items: center; gap: 12px; font-family: "Fraunces", serif; font-weight: 600; font-size: 18px; letter-spacing: 0.04em; }
-  nav.site .brand .mark { width: 44px; height: 44px; border-radius: 50%; overflow: hidden; border: 1.5px solid rgba(232,183,86,0.45); box-shadow: 0 4px 14px rgba(0,0,0,0.4); background: var(--bg); flex-shrink: 0; }
-  nav.site .brand .mark img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; }
+  nav.site .brand .mark { width: 44px; height: 44px; flex-shrink: 0; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.45)); }
+  nav.site .brand .mark img { width: 100%; height: 100%; display: block; }
   nav.site .links { display: flex; gap: 28px; font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
   nav.site .links a:hover { color: var(--gold); }
   @media (max-width: 720px) { nav.site .links { display: none; } }
@@ -157,7 +157,7 @@
 <nav class="site" aria-label="Primary">
   <div class="container row">
     <a class="brand" href="index.html" aria-label="Alex Savage — home">
-      <span class="mark"><img src="assets/alex-savage-logo.jpg" alt="" /></span>
+      <span class="mark"><img src="assets/alex-savage-mark.svg" alt="" width="44" height="44" /></span>
       <span>Alex&nbsp;Savage</span>
     </a>
     <div class="links">
