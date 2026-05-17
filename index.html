@@ -989,6 +989,78 @@
     text-align: center;
   }
 
+  /* ───────── harem-lit.com callout ───────── */
+  .hl-callout {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 32px;
+    padding: 36px 44px;
+    border: 1px solid rgba(255,126,148,0.30);
+    background:
+      radial-gradient(circle at 0% 50%, rgba(255,126,148,0.14), transparent 55%),
+      radial-gradient(circle at 100% 50%, rgba(232,183,86,0.10), transparent 60%),
+      rgba(22, 12, 36, 0.55);
+    overflow: hidden;
+  }
+  .hl-callout::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,126,148,0.05) 50%, transparent 100%);
+    pointer-events: none;
+  }
+  .hl-callout > * { position: relative; }
+  .hl-callout .eyebrow {
+    font-family: "Caveat", cursive;
+    color: var(--coral);
+    font-size: 22px;
+    margin: 0 0 4px;
+  }
+  .hl-callout h3 {
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+    font-size: clamp(22px, 3vw, 30px);
+    line-height: 1.15;
+    margin: 0 0 10px;
+    color: var(--ivory);
+    letter-spacing: -0.01em;
+  }
+  .hl-callout h3 em { font-style: italic; color: var(--coral-soft); }
+  .hl-callout p {
+    margin: 0;
+    color: rgba(245,239,225,0.78);
+    font-size: 15px;
+    line-height: 1.55;
+    max-width: 600px;
+  }
+  .hl-callout .btn-coral {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 28px;
+    background: var(--coral);
+    color: var(--midnight);
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    border: 1px solid var(--coral);
+    text-decoration: none;
+    transition: transform 0.15s ease, background 0.15s ease;
+    white-space: nowrap;
+  }
+  .hl-callout .btn-coral:hover {
+    background: var(--coral-soft);
+    transform: translateY(-1px);
+  }
+  @media (max-width: 720px) {
+    .hl-callout { grid-template-columns: 1fr; padding: 28px 24px; text-align: left; }
+    .hl-callout .btn-coral { justify-self: start; }
+  }
+
   /* Reveal */
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
   .reveal.in { opacity: 1; transform: none; }
@@ -1117,6 +1189,7 @@
       <a href="#books">Books</a>
       <a href="#about">About</a>
       <a href="#newsletter">Newsletter</a>
+      <a href="https://harem-lit.com" target="_blank" rel="noopener" style="color: var(--coral-soft);">harem-lit.com ↗</a>
       <a href="#patreon">Patreon</a>
       <a href="#contact">Contact</a>
     </div>
@@ -1251,6 +1324,20 @@
   </div>
 </section>
 
+<!-- ════════════ HAREM-LIT CALLOUT ════════════ -->
+<section id="harem-lit" style="padding: 40px 0 80px;">
+  <div class="container">
+    <div class="hl-callout reveal">
+      <div>
+        <p class="eyebrow">— Also on —</p>
+        <h3><em>harem-lit.com</em> — the home of the genre.</h3>
+        <p>The community hub for haremlit readers. Reviews, tier lists, recommendations, and direct connection with the authors. Find Alex's full catalogue alongside everyone else writing in the lane.</p>
+      </div>
+      <a class="btn-coral" href="https://harem-lit.com" target="_blank" rel="noopener">Visit harem-lit.com →</a>
+    </div>
+  </div>
+</section>
+
 <!-- ════════════ ABOUT ════════════ -->
 <section id="about">
   <div class="container">
@@ -1334,7 +1421,7 @@
       <div class="col">
         <h4>Read</h4>
         <a href="https://www.amazon.com/author/alexsavage" target="_blank" rel="noopener">Amazon Author Page</a>
-        <a href="https://harem-lit.com" target="_blank" rel="noopener">harem-lit.com</a>
+        <a href="https://harem-lit.com" target="_blank" rel="noopener" style="color: var(--coral-soft); font-weight: 600;">harem-lit.com — the genre hub ↗</a>
         <span class="note">Audiobooks coming soon</span>
       </div>
 
