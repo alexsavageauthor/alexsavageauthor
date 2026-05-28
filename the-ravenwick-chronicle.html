@@ -93,7 +93,46 @@
   nav.site .brand .mark img { width: 100%; height: 100%; display: block; }
   nav.site .links { display: flex; gap: 28px; font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
   nav.site .links a:hover { color: var(--gold); }
-  @media (max-width: 720px) { nav.site .links { display: none; } }
+
+  /* Mobile nav */
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: 1px solid rgba(245,239,230,0.25);
+    color: var(--cream);
+    width: 44px; height: 44px;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .nav-toggle:hover { border-color: var(--gold); color: var(--gold); }
+  @media (max-width: 720px) {
+    .nav-toggle { display: flex; }
+    nav.site .links { display: none; }
+  }
+
+  .mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: rgba(22, 12, 36, 0.98);
+    border-bottom: 1px solid var(--line);
+    padding: 16px 0;
+    z-index: 60;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    padding: 14px 24px;
+    font-size: 15px;
+    color: var(--cream);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { background: rgba(232,183,86,0.08); color: var(--gold); }
 
   /* Buttons */
   .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 999px; font-family: "Inter", sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease; cursor: pointer; border: 1px solid transparent; white-space: nowrap; }
@@ -160,10 +199,19 @@
     </a>
     <div class="links">
       <a href="index.html#books">Books</a>
+      <a href="free-sample.html" style="color: var(--gold);">Start Reading Free</a>
       <a href="index.html#about">About</a>
       <a href="https://harem-lit.com" target="_blank" rel="noopener" style="color: var(--coral-soft);">harem-lit.com ↗</a>
       <a href="index.html#patreon">Patreon</a>
-        </div>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html#books">Books</a>
+    <a href="free-sample.html" style="color: var(--gold);">Start Reading Free</a>
+    <a href="index.html#about">About</a>
+    <a href="https://harem-lit.com" target="_blank" rel="noopener" style="color: var(--coral-soft);">harem-lit.com ↗</a>
+    <a href="index.html#patreon">Patreon</a>
   </div>
 </nav>
 
@@ -277,6 +325,18 @@
     }
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* Mobile menu */
+  (function() {
+    var t = document.querySelector('.nav-toggle'), m = document.getElementById('mobile-menu');
+    if (!t || !m) return;
+    t.addEventListener('click', function() {
+      var open = m.classList.toggle('open');
+      t.setAttribute('aria-expanded', open);
+      t.textContent = open ? '✕' : '☰';
+    });
+    m.addEventListener('click', function(e) { if (e.target.tagName === 'A') { m.classList.remove('open'); t.setAttribute('aria-expanded','false'); t.textContent='☰'; } });
+  })();
 </script>
 </body>
 </html>

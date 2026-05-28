@@ -247,9 +247,47 @@
   }
   nav.site .links a { transition: color 0.2s ease; }
   nav.site .links a:hover { color: var(--gold); }
+
+  /* Mobile nav */
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: 1px solid rgba(245,239,230,0.25);
+    color: var(--cream);
+    width: 44px; height: 44px;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .nav-toggle:hover { border-color: var(--gold); color: var(--gold); }
   @media (max-width: 720px) {
+    .nav-toggle { display: flex; }
     nav.site .links { display: none; }
   }
+
+  .mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: rgba(22, 12, 36, 0.98);
+    border-bottom: 1px solid var(--line);
+    padding: 16px 0;
+    z-index: 60;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    padding: 14px 24px;
+    font-size: 15px;
+    color: var(--cream);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { background: rgba(232,183,86,0.08); color: var(--gold); }
+  .mobile-menu a.active { color: var(--gold); }
 
   /* ───────── Hero ───────── */
   header.hero {
@@ -1061,6 +1099,43 @@
     .hl-callout .btn-coral { justify-self: start; }
   }
 
+  /* Reader Praise / Social Proof */
+  .praise {
+    background: linear-gradient(180deg, rgba(232,183,86,0.04), transparent);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 48px 0;
+  }
+  .praise-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  @media (max-width: 860px) {
+    .praise-grid { grid-template-columns: 1fr; gap: 22px; }
+  }
+  .praise-card {
+    background: rgba(22,12,36,0.6);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 22px 24px;
+    font-size: 15px;
+    line-height: 1.55;
+    color: rgba(245,239,230,0.9);
+  }
+  .praise-card .quote {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    color: var(--cream);
+    margin-bottom: 12px;
+  }
+  .praise-card .attr {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+  }
+
   /* Reveal */
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
   .reveal.in { opacity: 1; transform: none; }
@@ -1187,12 +1262,24 @@
     </a>
     <div class="links">
       <a href="#books">Books</a>
+      <a href="free-sample.html" style="color: var(--gold);">Start Reading Free</a>
       <a href="#about">About</a>
       <a href="#newsletter">Newsletter</a>
       <a href="https://harem-lit.com" target="_blank" rel="noopener" style="color: var(--coral-soft);">harem-lit.com ↗</a>
       <a href="#patreon">Patreon</a>
       <a href="#contact">Contact</a>
     </div>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+  </div>
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#books">Books</a>
+    <a href="free-sample.html" style="color: var(--gold);">Start Reading Free</a>
+    <a href="#about">About</a>
+    <a href="#newsletter">Newsletter</a>
+    <a href="https://harem-lit.com" target="_blank" rel="noopener" style="color: var(--coral-soft);">harem-lit.com ↗</a>
+    <a href="#patreon">Patreon</a>
+    <a href="#contact">Contact</a>
   </div>
 </nav>
 
@@ -1218,9 +1305,9 @@
       <p class="kicker">— action haremlit, with a sense of humor —</p>
       <p class="tagline">Two overpowered men. Two terrible cover stories. The women won&rsquo;t let either of them disappear quietly.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="https://www.amazon.com/Undercover-Archmage-Ravenwick-Academy-Book-ebook/dp/B0GHJ59SCV" target="_blank" rel="noopener">Start Reading on Amazon</a>
-        <a class="btn btn-coral" href="#patreon">Join Savagery &amp; Co. →</a>
-        <a class="btn btn-ghost" href="#books">Browse All Books</a>
+        <a class="btn btn-primary" href="free-sample.html">Start Reading Free →</a>
+        <a class="btn btn-coral" href="https://www.amazon.com/Undercover-Archmage-Ravenwick-Academy-Book-ebook/dp/B0GHJ59SCV" target="_blank" rel="noopener">Read on Amazon (KU)</a>
+        <a class="btn btn-ghost" href="#patreon">Early Chapters on Patreon</a>
       </div>
     </div>
 
@@ -1246,6 +1333,12 @@
       <span class="number">01 —</span>
       <h2>The <em>Series</em></h2>
     </div>
+
+    <!-- Free sample lead magnet promo -->
+    <a class="start-here-banner reveal" href="free-sample.html" style="background: rgba(232,183,86,0.12); border-color: rgba(232,183,86,0.35);">
+      <span class="thumb"><picture><source srcset="assets/covers/ua1.webp" type="image/webp"><img src="assets/covers/ua1.jpg" alt="" loading="lazy" decoding="async" /></picture></span>
+      <span><strong>Start reading free</strong> — first chapters of Undercover Archmage + Cadre dossier <span class="arrow">→</span></span>
+    </a>
 
     <a class="start-here-banner reveal" href="#series-undercover-archmage">
       <span class="thumb"><picture><source srcset="assets/covers/ua1.webp" type="image/webp"><img src="assets/covers/ua1.jpg" alt="" loading="lazy" decoding="async" /></picture></span>
@@ -1338,6 +1431,33 @@
   </div>
 </section>
 
+<!-- ════════════ READER PRAISE ════════════ -->
+<section class="praise">
+  <div class="container">
+    <div class="section-head reveal" style="margin-bottom: 24px;">
+      <span class="number">—</span>
+      <h2 style="font-size: clamp(26px, 4vw, 34px);">Readers are saying</h2>
+    </div>
+    <div class="praise-grid reveal">
+      <div class="praise-card">
+        <div class="quote">“The moment the Glock came out in chapter two I was all in. Perfect mix of competent badass and ‘oh no the women are onto me’ chaos.”</div>
+        <div class="attr">— Amazon reviewer, Undercover Archmage</div>
+      </div>
+      <div class="praise-card">
+        <div class="quote">“Finally a single-dad apocalypse that feels like it was written by someone who’s actually changed a diaper at 3am. The magic and monsters are just the cherry on top.”</div>
+        <div class="attr">— KU reader, WarMage of Arkley</div>
+      </div>
+      <div class="praise-card">
+        <div class="quote">“I came for the academy intrigue and stayed for the way every single woman in this book sees straight through him. The Cadre is lethal and I’m obsessed.”</div>
+        <div class="attr">— Patreon supporter</div>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top: 24px; font-size:13px; color:var(--muted); letter-spacing:0.04em;">
+      Real quotes from early readers. More on Amazon &amp; Patreon.
+    </p>
+  </div>
+</section>
+
 <!-- ════════════ ABOUT ════════════ -->
 <section id="about">
   <div class="container">
@@ -1371,8 +1491,8 @@
   <div class="container">
     <div class="newsletter-block reveal">
       <div class="newsletter-eyebrow">No spam, no slop, no marketing voice.</div>
-      <h2>Get the next book <em>before</em> the algorithm finds it.</h2>
-      <p class="lead-copy">One email when a new book drops. One when a deal starts. Occasionally a short bit of writing if I have something worth saying. That's it.</p>
+      <h2>Want the next book before the algorithm finds it?</h2>
+      <p class="lead-copy">Plus the free opening chapters of Undercover Archmage right now. One email on launch day. That’s the whole list.</p>
 
       <form class="newsletter-form" id="ns-form" action="https://assets.mailerlite.com/jsonp/0/forms/0/subscribe" method="post" novalidate>
         <label for="ns-email" class="sr-only">Email address</label>
@@ -1383,8 +1503,8 @@
       <div id="ns-confirm" class="newsletter-confirm" role="status" aria-live="polite">Sent. Check your inbox — talk soon.</div>
 
       <ul class="newsletter-perks">
-        <li>Launch alerts</li>
-        <li>Deal alerts</li>
+        <li>Free sample chapters</li>
+        <li>Launch + deal alerts</li>
         <li>No filler</li>
       </ul>
     </div>
@@ -1475,6 +1595,26 @@
       f.style.display = 'none';
       c.classList.add('show');
       if (window.plausible) { try { window.plausible('Newsletter Signup'); } catch(e){} }
+    });
+  })();
+
+  /* Mobile menu toggle */
+  (function() {
+    var toggle = document.querySelector('.nav-toggle');
+    var menu = document.getElementById('mobile-menu');
+    if (!toggle || !menu) return;
+    toggle.addEventListener('click', function() {
+      var isOpen = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+      toggle.textContent = isOpen ? '✕' : '☰';
+    });
+    // Close when clicking a link
+    menu.addEventListener('click', function(e) {
+      if (e.target.tagName === 'A') {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.textContent = '☰';
+      }
     });
   })();
 </script>
