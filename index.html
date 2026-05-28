@@ -131,7 +131,6 @@
       "author": { "@id": "https://alexsavageauthor.com/#author" },
       "isPartOf": { "@id": "https://alexsavageauthor.com/#series-undercover-archmage" },
       "bookFormat": "https://schema.org/EBook",
-      "bookEdition": "Pre-order",
       "inLanguage": "en",
       "url": "https://www.amazon.com/dp/B0GZCJ6JC5",
       "image": "https://alexsavageauthor.com/assets/covers/ua4.jpg"
@@ -1223,8 +1222,7 @@
 
   /* Badges on more-row thumbnails */
   .series-card .more-row a.thumb { position: relative; }
-  .series-card .more-row a.thumb.is-new::after,
-  .series-card .more-row a.thumb.is-preorder::after {
+  .series-card .more-row a.thumb.is-new::after {
     position: absolute;
     top: -7px; right: -10px;
     color: #2A0A11;
@@ -1237,16 +1235,8 @@
     transform: rotate(10deg);
     z-index: 2;
     pointer-events: none;
-  }
-  .series-card .more-row a.thumb.is-new::after {
     content: "NEW";
     background: var(--coral);
-  }
-  .series-card .more-row a.thumb.is-preorder::after {
-    content: "PREORDER";
-    background: var(--gold);
-    letter-spacing: 0.06em;
-    padding: 3px 7px;
   }
 
 </style>
@@ -1284,16 +1274,16 @@
 </nav>
 
 <!-- ════════════ LAUNCH BANNER ════════════ -->
-<a class="launch-banner" href="https://www.amazon.com/dp/B0GZCJ6JC5" target="_blank" rel="noopener" aria-label="Preorder Undercover Archmage 4 on Amazon">
+<a class="launch-banner" href="https://www.amazon.com/dp/B0GZCJ6JC5" target="_blank" rel="noopener" aria-label="Undercover Archmage 4 now available on Amazon">
   <div class="container launch-row">
     <span class="launch-thumb">
       <picture><source srcset="assets/covers/ua4.webp" type="image/webp"><img src="assets/covers/ua4.jpg" alt="" loading="eager" fetchpriority="high" decoding="async" /></picture>
     </span>
     <span class="launch-text">
-      <span class="launch-tag">★ Preorder Now</span>
-      <span class="launch-title"><em>Undercover Archmage 4</em> — available to preorder on Amazon</span>
+      <span class="launch-tag">★ Now Available</span>
+      <span class="launch-title"><em>Undercover Archmage 4</em> — out now on Amazon &amp; Kindle Unlimited</span>
     </span>
-    <span class="launch-arrow">Preorder on Amazon →</span>
+    <span class="launch-arrow">Read on Amazon →</span>
   </div>
 </a>
 
@@ -1375,8 +1365,8 @@
             <a class="thumb" href="https://www.amazon.com/Undercover-Archmage-Ravenwick-Academy-Book-ebook/dp/B0GPZVZ7CG" target="_blank" rel="noopener" aria-label="Undercover Archmage Book 3">
               <picture><source srcset="assets/covers/ua3.webp" type="image/webp"><img src="assets/covers/ua3.jpg" alt="Undercover Archmage Book 3" loading="lazy" decoding="async" /></picture>
             </a>
-            <a class="thumb is-preorder" href="https://www.amazon.com/dp/B0GZCJ6JC5" target="_blank" rel="noopener" aria-label="Undercover Archmage Book 4 — available to preorder">
-              <picture><source srcset="assets/covers/ua4.webp" type="image/webp"><img src="assets/covers/ua4.jpg" alt="Undercover Archmage Book 4 — preorder cover" loading="lazy" decoding="async" /></picture>
+            <a class="thumb is-new" href="https://www.amazon.com/dp/B0GZCJ6JC5" target="_blank" rel="noopener" aria-label="Undercover Archmage Book 4 — now available">
+              <picture><source srcset="assets/covers/ua4.webp" type="image/webp"><img src="assets/covers/ua4.jpg" alt="Undercover Archmage Book 4 — now available" loading="lazy" decoding="async" /></picture>
             </a>
           </div>
           <p class="cross-link">Want stakes that move at school-run speed? Try <a href="#series-warmage-arkley">The WarMage of Arkley</a> — a System-interface apocalypse with marshmallows.</p>
