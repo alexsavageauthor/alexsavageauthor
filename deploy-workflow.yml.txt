@@ -1,0 +1,48 @@
+name: Build & Deploy (GitHub Pages)
+
+# Every push to main runs the validation gate, then — only if it passes —
+# publishes the site to GitHub Pages. The custom domain (CNAME) is preserved
+# because the whole repo root is uploaded as the Pages artifact.
+#
+# ONE-TIME ACTIVATION: GitHub repo → Settings → Pages → Build and deployment
+# → Source → "GitHub Actions". Until that's set, your existing "Deploy from a
+# branch" Pages keeps serving the site, so there's no downtime.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate JSON-LD, XML, and HTML
+        run: python3 .github/scripts/validate_site.py
+
+  deploy:
+    needs: validate
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
