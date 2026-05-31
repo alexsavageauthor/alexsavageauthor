@@ -6,12 +6,13 @@ A working brand document for the Alex Savage pen name, published under the **Sav
 
 ## 1. Who Alex Savage is
 
-**Pen name. Action haremlit author.** Writes male-protagonist haremlit with two registers:
+**Pen name. Action haremlit author.** Writes male-protagonist haremlit across three registers:
 
 - **Sensual / hardboiled fantasy** — the *Undercover Archmage* / *Ravenwick Chronicle* line. Black-ops operator under deep cover at a magic academy. Mature, intimate, painterly cover art.
 - **Slice-of-life LitRPG** — the *WarMage of Arkley* line. Supremacy-grade mage raising his daughter when the apocalypse turns up next door. Lighter, character-forward, illustrated cover art.
+- **Grimdark isekai / progression** — the *Chirurgeon* / *Hambledon Free Company* line. A Pittsburgh ER nurse pulled into a dying world, a system bracer leveling a trauma medic into the one man a mercenary company can't afford to lose. Darker, bloodier, garnet-anchored.
 
-Both share the author's voice — overpowered men with cover stories that are coming apart, and the women determined to be in the room when it happens.
+All three share the author's voice — overpowered men who'd rather keep their heads down, in worlds that won't let them, and the women determined to be in the room when it happens.
 
 **Imprint:** Savagery & Co. (the back-end identity — Patreon, copyright line, eventual merch).
 
@@ -102,8 +103,9 @@ Each series gets a **color anchor** drawn from the brand palette. Used as the sp
 |---|---|---|---|
 | The Ravenwick Chronicle (UA) | Brand gold | `#E8B756` | Aligns with academic/magical illumination, gold-on-purple matches the UA cover style |
 | The WarMage of Arkley (WA) | Brand coral | `#FF7E94` | Warmer, slice-of-life signal, plays well with the lighter WA art direction |
+| Chirurgeon (the Halloran line) | Garnet | `#8B2E3C` | Blood, the surgeon's table, the grimdark/isekai register. A new dark-red tone, distinct from the gold/coral pair. Text accent lifts to `#C44E60` for legibility on the deep-purple ground. |
 
-If/when a third series launches, third color is reserved from: muted lavender `#B1A2CC` or a new tone added here.
+If/when a fourth series launches, the next color is reserved from: muted lavender `#B1A2CC` or a new tone added here.
 
 ---
 

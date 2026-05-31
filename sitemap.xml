@@ -4,7 +4,7 @@
 
   <url>
     <loc>https://alexsavageauthor.com/</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-05-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -32,6 +32,16 @@
     <image:image>
       <image:loc>https://alexsavageauthor.com/assets/og/og-series-warmage.jpg</image:loc>
       <image:title>The WarMage of Arkley — Series</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://alexsavageauthor.com/the-hambledon-free-company.html</loc>
+    <lastmod>2026-05-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://alexsavageauthor.com/assets/og/og-series-chirurgeon.jpg</image:loc>
+      <image:title>The Hambledon Free Company (Chirurgeon) — Series</image:title>
     </image:image>
   </url>
 
@@ -94,6 +104,16 @@
     <image:image>
       <image:loc>https://alexsavageauthor.com/assets/covers/wa2.jpg</image:loc>
       <image:title>The WarMage of Arkley 2</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://alexsavageauthor.com/chirurgeon-1.html</loc>
+    <lastmod>2026-05-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://alexsavageauthor.com/assets/covers/chir.jpg</image:loc>
+      <image:title>Chirurgeon — The Hambledon Free Company Book 1 (Pre-order)</image:title>
     </image:image>
   </url>
 

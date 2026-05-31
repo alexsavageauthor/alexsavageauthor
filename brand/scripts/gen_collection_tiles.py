@@ -288,18 +288,55 @@ def motif_single_cover(canvas: Image.Image, motif_data) -> Image.Image:
 
 
 def motif_cover_stack(canvas: Image.Image, motif_data) -> Image.Image:
-    """Multiple book covers in a tight fan, centered upper area."""
+    """Multiple book covers in a tight fan, centered upper area.
+    motif_data['orientation'] = 'horizontal' (default) or 'vertical'."""
     w, h = canvas.size
     cover_paths = motif_data.get("covers", [])
     cover_paths = [p for p in cover_paths if Path(p).exists()]
     if not cover_paths:
         return motif_brand_only(canvas, motif_data)
 
-    cover_h = int(h * 0.50)
+    orientation = motif_data.get("orientation", "horizontal")
     rgba = canvas.convert("RGBA")
-
     n = len(cover_paths)
-    # Fan angles centered on 0
+
+    if orientation == "vertical":
+        # Cards stacked vertically with horizontal offsets — premium feel
+        cover_h = int(h * 0.32)
+        cw = int(cover_h / 1.6)
+        # Alternating horizontal offsets for natural cascade
+        x_offsets = [-30, 20, -20, 30, -30, 20][:n]
+
+        # Vertical stacking with overlap
+        vstep = int(cover_h * 0.42)
+        total_h = (n - 1) * vstep + cover_h
+        start_y = int(h * 0.06)
+        center_x = w // 2
+
+        for i, path in enumerate(cover_paths):
+            cover = Image.open(path).convert("RGB")
+            cover = cover.resize((cw, cover_h), Image.LANCZOS)
+            bordered = Image.new("RGB", (cw + 2, cover_h + 2), BRAND_CREAM)
+            bordered.paste(cover, (1, 1))
+            cv = bordered.convert("RGBA")
+            # Shadow
+            pad = 18
+            shadow = Image.new("RGBA",
+                               (cv.width + pad * 2, cv.height + pad * 2),
+                               (0, 0, 0, 0))
+            sd = ImageDraw.Draw(shadow)
+            sd.rectangle((pad, pad + 6, pad + cv.width, pad + cv.height + 6),
+                         fill=(0, 0, 0, 180))
+            shadow = shadow.filter(ImageFilter.GaussianBlur(10))
+            composed = shadow.copy()
+            composed.alpha_composite(cv, (pad, pad))
+            px = center_x + x_offsets[i] - composed.width // 2
+            py = start_y + i * vstep
+            rgba.alpha_composite(composed, (px, py))
+        return rgba.convert("RGB")
+
+    # Horizontal fan (default)
+    cover_h = int(h * 0.50)
     if n == 1:
         angles = [0]
     elif n == 2:
@@ -318,7 +355,6 @@ def motif_cover_stack(canvas: Image.Image, motif_data) -> Image.Image:
         bordered = Image.new("RGB", (cw + 2, cover_h + 2), BRAND_CREAM)
         bordered.paste(cover, (1, 1))
         cv = bordered.convert("RGBA")
-        # Shadow
         pad = 22
         shadow = Image.new("RGBA",
                            (cv.width + pad * 2, cv.height + pad * 2),
@@ -332,10 +368,9 @@ def motif_cover_stack(canvas: Image.Image, motif_data) -> Image.Image:
         composed = composed.rotate(angle, resample=Image.BICUBIC, expand=True)
         rendered.append(composed)
 
-    # Center them horizontally, slight horizontal offset so they overlap
     center_x = w // 2
     center_y = int(h * 0.32)
-    step = int(cover_h * 0.42 / 1.6)  # overlap by ~58%
+    step = int(cover_h * 0.42 / 1.6)
     total_w = (n - 1) * step
     start_x = center_x - total_w // 2
 
@@ -345,6 +380,209 @@ def motif_cover_stack(canvas: Image.Image, motif_data) -> Image.Image:
         rgba.alpha_composite(img, (px, py))
 
     return rgba.convert("RGB")
+
+
+def motif_parchment_desk(canvas: Image.Image, motif_data) -> Image.Image:
+    """Aged parchment on dark wood, with handwritten text, wax seal,
+    and atmospheric candlelight. For 'author updates' / personal tiles."""
+    import math
+    w, h = canvas.size
+    rgba = canvas.convert("RGBA")
+    draw = ImageDraw.Draw(rgba)
+
+    # Subtle dark wood-grain wash on the existing brand background
+    grain = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    gd = ImageDraw.Draw(grain)
+    import random
+    random.seed(7)
+    for y in range(0, int(h * 0.70), 3):
+        opacity = random.randint(20, 50)
+        gd.line([(0, y), (w, y)], fill=(10, 6, 18, opacity))
+    rgba.alpha_composite(grain.filter(ImageFilter.GaussianBlur(1.2)))
+
+    # Parchment rectangle — cream, slightly rotated, drop shadow
+    parch_w = int(w * 0.62)
+    parch_h = int(h * 0.42)
+    parch_cx = int(w * 0.50)
+    parch_cy = int(h * 0.30)
+    tilt = -3.5  # gentle natural rotation
+
+    # Build parchment with rough/torn edges
+    parch = Image.new("RGBA", (parch_w + 80, parch_h + 80), (0, 0, 0, 0))
+    pd = ImageDraw.Draw(parch)
+    # Main paper body
+    paper_color = (245, 235, 215, 255)  # slightly warmer than brand-cream
+    pd.rounded_rectangle((40, 40, 40 + parch_w, 40 + parch_h),
+                         radius=4, fill=paper_color)
+    # Aged staining: a few coffee-ring-style dabs at random
+    stain = Image.new("RGBA", (parch_w + 80, parch_h + 80), (0, 0, 0, 0))
+    sd = ImageDraw.Draw(stain)
+    random.seed(13)
+    for _ in range(6):
+        sx = random.randint(80, parch_w - 30)
+        sy = random.randint(80, parch_h - 30)
+        sr = random.randint(40, 90)
+        sd.ellipse((sx - sr, sy - sr, sx + sr, sy + sr),
+                   fill=(180, 140, 80, random.randint(18, 35)))
+    stain = stain.filter(ImageFilter.GaussianBlur(18))
+    parch.alpha_composite(stain)
+
+    # Handwritten phrase on the parchment
+    phrase = motif_data.get("phrase", "from the desk")
+    phrase_font = ImageFont.truetype(str(FONT_ACCENT), int(parch_h * 0.30))
+    bbox = pd.textbbox((0, 0), phrase, font=phrase_font)
+    pw_text = bbox[2] - bbox[0]
+    ph_text = bbox[3] - bbox[1]
+    tx = (parch_w + 80 - pw_text) // 2
+    ty = 40 + (parch_h - ph_text) // 2 - int(parch_h * 0.08)
+    # Slight ink-bleed shadow
+    pd.text((tx + 1, ty + 1), phrase, font=phrase_font,
+            fill=(60, 25, 15, 80))
+    pd.text((tx, ty), phrase, font=phrase_font,
+            fill=(60, 30, 50, 230))  # dark plum-ink
+
+    # Underline rule
+    rule_x1 = tx + int(pw_text * 0.18)
+    rule_x2 = tx + int(pw_text * 0.82)
+    rule_y = ty + ph_text + int(parch_h * 0.05)
+    pd.line([(rule_x1, rule_y), (rule_x2, rule_y)],
+            fill=(80, 40, 60, 180), width=2)
+
+    # Wax seal — small coral disc bottom-right of parchment
+    seal_r = int(parch_h * 0.10)
+    seal_cx = parch_w + 40 - int(seal_r * 1.4)
+    seal_cy = parch_h + 40 - int(seal_r * 1.4)
+    pd.ellipse((seal_cx - seal_r, seal_cy - seal_r,
+                seal_cx + seal_r, seal_cy + seal_r),
+               fill=(190, 50, 70, 240))
+    pd.ellipse((seal_cx - seal_r + 4, seal_cy - seal_r + 4,
+                seal_cx + seal_r - 4, seal_cy + seal_r - 4),
+               outline=(140, 30, 50, 200), width=2)
+    # Tiny "S" mark in seal
+    sf = ImageFont.truetype(str(FONT_IMPRINT), int(seal_r * 1.2))
+    sbox = pd.textbbox((0, 0), "S", font=sf)
+    sw, sh = sbox[2] - sbox[0], sbox[3] - sbox[1]
+    pd.text((seal_cx - sw // 2, seal_cy - sh // 2 - 2),
+            "S", font=sf, fill=(245, 220, 180, 220))
+
+    # Drop shadow for parchment
+    shadow = Image.new("RGBA", (parch_w + 120, parch_h + 120), (0, 0, 0, 0))
+    shd = ImageDraw.Draw(shadow)
+    shd.rounded_rectangle((40 + 8, 40 + 12,
+                           40 + parch_w + 8, 40 + parch_h + 12),
+                          radius=4, fill=(0, 0, 0, 200))
+    shadow = shadow.filter(ImageFilter.GaussianBlur(14))
+
+    # Rotate both
+    parch = parch.rotate(tilt, resample=Image.BICUBIC, expand=True)
+    shadow = shadow.rotate(tilt, resample=Image.BICUBIC, expand=True)
+
+    # Composite shadow first then parchment
+    paste_x = parch_cx - parch.width // 2
+    paste_y = parch_cy - parch.height // 2
+    rgba.alpha_composite(shadow, (paste_x - 10, paste_y + 8))
+    rgba.alpha_composite(parch, (paste_x, paste_y))
+
+    # Candlelight glow upper-left
+    glow = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    gld = ImageDraw.Draw(glow)
+    glow_cx, glow_cy = int(w * 0.15), int(h * 0.12)
+    for r in range(int(h * 0.4), 0, -8):
+        ratio = r / (h * 0.4)
+        alpha = int(70 * (1 - ratio) ** 1.5)
+        gld.ellipse((glow_cx - r, glow_cy - r, glow_cx + r, glow_cy + r),
+                    fill=BRAND_GOLD + (alpha,))
+    glow = glow.filter(ImageFilter.GaussianBlur(30))
+    rgba.alpha_composite(glow)
+
+    return rgba.convert("RGB")
+
+
+def motif_arcane_sigil(canvas: Image.Image, motif_data) -> Image.Image:
+    """Magical circle / sigil composition — concentric rings, runes,
+    geometric pattern. Lore/grimoire feel for worldbuilding tiles."""
+    import math
+    w, h = canvas.size
+    rgba = canvas.convert("RGBA")
+    draw = ImageDraw.Draw(rgba)
+
+    cx = w // 2
+    cy = int(h * 0.30)
+    base_r = int(h * 0.22)
+
+    # Outer ring (thin gold)
+    r_outer = base_r + int(h * 0.04)
+    draw.ellipse((cx - r_outer, cy - r_outer, cx + r_outer, cy + r_outer),
+                 outline=BRAND_GOLD, width=3)
+    # Inner thinner ring
+    r_outer2 = r_outer - 14
+    draw.ellipse((cx - r_outer2, cy - r_outer2, cx + r_outer2, cy + r_outer2),
+                 outline=BRAND_GOLD, width=1)
+
+    # Mid ring
+    r_mid = int(base_r * 0.78)
+    draw.ellipse((cx - r_mid, cy - r_mid, cx + r_mid, cy + r_mid),
+                 outline=BRAND_GOLD, width=2)
+
+    # Runes around outer ring — 12 small geometric marks drawn directly
+    # (Unicode rune chars don't render in Cinzel — use vector primitives)
+    rune_r = (r_outer + r_outer2) // 2
+    rune_size = int(h * 0.018)
+    for i in range(12):
+        angle = (i / 12) * 2 * math.pi - math.pi / 2  # start at top
+        rx = cx + int(rune_r * math.cos(angle))
+        ry = cy + int(rune_r * math.sin(angle))
+        kind = i % 4
+        if kind == 0:
+            # Vertical bar
+            draw.line([(rx, ry - rune_size), (rx, ry + rune_size)],
+                      fill=BRAND_GOLD, width=2)
+        elif kind == 1:
+            # Diamond
+            draw.polygon([(rx, ry - rune_size), (rx + rune_size, ry),
+                          (rx, ry + rune_size), (rx - rune_size, ry)],
+                         outline=BRAND_GOLD, width=2)
+        elif kind == 2:
+            # Cross
+            draw.line([(rx - rune_size, ry), (rx + rune_size, ry)],
+                      fill=BRAND_GOLD, width=2)
+            draw.line([(rx, ry - rune_size), (rx, ry + rune_size)],
+                      fill=BRAND_GOLD, width=2)
+        else:
+            # Small circle
+            draw.ellipse((rx - rune_size, ry - rune_size,
+                          rx + rune_size, ry + rune_size),
+                         outline=BRAND_GOLD, width=2)
+
+    # Inner geometric pattern — six-pointed star (two overlapping triangles)
+    def triangle_at(angle_offset_deg, color):
+        pts = []
+        for k in range(3):
+            ang = math.radians(angle_offset_deg + k * 120 - 90)
+            px = cx + int(r_mid * 0.85 * math.cos(ang))
+            py = cy + int(r_mid * 0.85 * math.sin(ang))
+            pts.append((px, py))
+        draw.line([pts[0], pts[1]], fill=color, width=2)
+        draw.line([pts[1], pts[2]], fill=color, width=2)
+        draw.line([pts[2], pts[0]], fill=color, width=2)
+    triangle_at(0, BRAND_GOLD)
+    triangle_at(180, BRAND_GOLD)
+
+    # Center dot
+    draw.ellipse((cx - 6, cy - 6, cx + 6, cy + 6), fill=BRAND_GOLD)
+
+    # Soft glow behind the sigil
+    glow = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    gd = ImageDraw.Draw(glow)
+    for r in range(r_outer + int(h * 0.12), 0, -6):
+        ratio = r / (r_outer + h * 0.12)
+        alpha = int(40 * (1 - ratio) ** 1.4)
+        gd.ellipse((cx - r, cy - r, cx + r, cy + r),
+                   fill=BRAND_GOLD + (alpha,))
+    glow = glow.filter(ImageFilter.GaussianBlur(20))
+    out = rgba.convert("RGBA")
+    blended = Image.alpha_composite(glow, out)
+    return blended.convert("RGB")
 
 
 def motif_imprint_mark(canvas: Image.Image, motif_data) -> Image.Image:
@@ -510,6 +748,8 @@ MOTIFS = {
     "imprint_mark":     motif_imprint_mark,
     "caveat_flourish":  motif_caveat_flourish,
     "custom_image":     motif_custom_image,
+    "parchment_desk":   motif_parchment_desk,
+    "arcane_sigil":     motif_arcane_sigil,
 }
 
 
@@ -641,8 +881,8 @@ COLLECTIONS = [
         "name":       "State of the Desk",
         "descriptor": "Author updates · Voice memos · Plotting in real time",
         "accent":     BRAND_CORAL,
-        "motif":      "caveat_flourish",
-        "motif_data": {"phrase": "— from the desk —"},
+        "motif":      "parchment_desk",
+        "motif_data": {"phrase": "from the desk"},
     },
     {
         "name":       "Free Sample Chapters",
@@ -654,15 +894,18 @@ COLLECTIONS = [
     {
         "name":       "Bonus Shorts",
         "descriptor": "Side stories · Between-book scenes",
-        "accent":     BRAND_GOLD,
-        "motif":      "single_cover",
-        "motif_data": {"cover": COVER_UA2, "tilt": 2},
+        "accent":     BRAND_CORAL,
+        "motif":      "custom_image",
+        "motif_data": {
+            "image": str(ASSETS_DIR / "patreon-collections/source/bonus-shorts-bubble-gum.webp"),
+            "top_bias": 0.0,
+        },
     },
     {
         "name":       "World Bible",
         "descriptor": "Lore · Continuity · Worldbuilding reference",
         "accent":     BRAND_GOLD,
-        "motif":      "imprint_mark",
+        "motif":      "arcane_sigil",
         "motif_data": {},
     },
     {
@@ -670,21 +913,30 @@ COLLECTIONS = [
         "descriptor": "Adept tier · Premium bonus material",
         "accent":     BRAND_GOLD,
         "motif":      "cover_stack",
-        "motif_data": {"covers": [COVER_UA1, COVER_UA2, COVER_UA3, COVER_UA4]},
+        "motif_data": {
+            "covers": [COVER_UA1, COVER_UA2, COVER_UA3, COVER_UA4],
+            "orientation": "vertical",
+        },
     },
     {
         "name":       "Waifu Cards",
         "descriptor": "Character portrait collection · Premium tier",
         "accent":     BRAND_CORAL,
-        "motif":      "single_cover",
-        "motif_data": {"cover": COVER_UA3, "tilt": -2},
+        "motif":      "custom_image",
+        "motif_data": {
+            "image": str(ASSETS_DIR / "patreon-collections/source/waifu-card-premium-redhead-library.webp"),
+            "top_bias": 0.05,
+        },
     },
     {
         "name":       "Initiate Waifu Cards",
         "descriptor": "Character cards · Free tier introduction",
         "accent":     BRAND_CORAL,
-        "motif":      "single_cover",
-        "motif_data": {"cover": COVER_WA2, "tilt": 2},
+        "motif":      "custom_image",
+        "motif_data": {
+            "image": str(ASSETS_DIR / "patreon-collections/source/waifu-card-free-cheerleader.jpg"),
+            "top_bias": 0.0,
+        },
     },
 ]
 
