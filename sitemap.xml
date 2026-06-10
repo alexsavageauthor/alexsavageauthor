@@ -161,4 +161,15 @@
 
   <!-- Lead magnet pages -->
 
+
+  <url>
+    <loc>https://alexsavageauthor.com/reading-order.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alexsavageauthor.com/patreon.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
