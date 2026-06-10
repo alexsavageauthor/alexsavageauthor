@@ -160,21 +160,5 @@
   </url>
 
   <!-- Lead magnet pages -->
-  <url>
-    <loc>https://alexsavageauthor.com/free-sample.html</loc>
-    <lastmod>2026-05-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-    <image:image>
-      <image:loc>https://alexsavageauthor.com/assets/og/og-undercover-archmage.jpg</image:loc>
-      <image:title>Start Reading Free — Sample Chapters</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://alexsavageauthor.com/sample-thanks.html</loc>
-    <lastmod>2026-05-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
 
 </urlset>
