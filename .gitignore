@@ -7,3 +7,6 @@
 *~
 .vscode/
 .idea/
+
+# Private working notes — must never be deployed (GitHub Pages serves the whole repo)
+SESSION_HANDOFF.md
