@@ -10,3 +10,9 @@
 
 # Private working notes — must never be deployed (GitHub Pages serves the whole repo)
 SESSION_HANDOFF.md
+assets/adept-editions/
+__pycache__/
+*.pyc
+assets/adept-editions/
+__pycache__/
+*.pyc
