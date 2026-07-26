@@ -4,7 +4,7 @@
 
   <url>
     <loc>https://alexsavageauthor.com/</loc>
-    <lastmod>2026-05-31</lastmod>
+    <lastmod>2026-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -32,6 +32,16 @@
     <image:image>
       <image:loc>https://alexsavageauthor.com/assets/og/og-series-warmage.jpg</image:loc>
       <image:title>The WarMage of Arkley — Series</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://alexsavageauthor.com/hells-half-acre.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://alexsavageauthor.com/assets/og/og-series-hells-half-acre.jpg</image:loc>
+      <image:title>Hell's Half-Acre — Series</image:title>
     </image:image>
   </url>
   <url>
@@ -104,6 +114,16 @@
     <image:image>
       <image:loc>https://alexsavageauthor.com/assets/covers/wa2.jpg</image:loc>
       <image:title>The WarMage of Arkley 2</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://alexsavageauthor.com/hells-half-acre-1.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://alexsavageauthor.com/assets/covers/hha.jpg</image:loc>
+      <image:title>Hell's Half-Acre — Book 1, a monster girl western</image:title>
     </image:image>
   </url>
   <url>
