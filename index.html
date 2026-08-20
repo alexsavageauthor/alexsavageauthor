@@ -1745,6 +1745,13 @@
     var f = document.getElementById('ns-form');
     var c = document.getElementById('ns-confirm');
     if (!f || !c) return;
+    /* Backmatter attribution (2026-08-20): links from book backmatter carry ?src=bm;
+       those signups post to "Alex Savage Site — Backmatter signups" (form 196354387602310189)
+       so MailerLite counts the source separately. Same group and flow either way. */
+    try {
+      if (new URLSearchParams(location.search).get('src') === 'bm') sessionStorage.setItem('as_src', 'bm');
+      if (sessionStorage.getItem('as_src') === 'bm') f.action = 'https://assets.mailerlite.com/jsonp/2489284/forms/196354387602310189/subscribe';
+    } catch (e) {}
     f.addEventListener('submit', function(ev) {
       ev.preventDefault();
       var email = (document.getElementById('ns-email') || {}).value || '';
