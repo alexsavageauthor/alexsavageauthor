@@ -858,7 +858,7 @@ def render_tile(spec: dict) -> Image.Image:
 COLLECTIONS = [
     {
         "name":       "Undercover Archmage",
-        "descriptor": "Magic-academy action haremlit · The Ravenwick Chronicle",
+        "descriptor": "Magic-academy action haremlit · Ravenwick Academy",
         "accent":     BRAND_GOLD,
         "motif":      "single_cover",
         "motif_data": {"cover": COVER_UA1, "tilt": -3},

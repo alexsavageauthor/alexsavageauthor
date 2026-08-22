@@ -35,7 +35,7 @@ COVER_BAND   = (26, 15, 44)      # #1A0F2C (overlay tone)
 
 # ─── Series → anchor color ────────────────────────────────────────────────
 SERIES_ANCHORS = {
-    "ua": BRAND_GOLD,     # The Ravenwick Chronicle (Undercover Archmage)
+    "ua": BRAND_GOLD,     # Ravenwick Academy (Undercover Archmage)
     "wa": BRAND_CORAL,    # The WarMage of Arkley
     # Add more series here as the catalog grows.
 }
