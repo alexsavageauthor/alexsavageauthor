@@ -1,3 +1,5 @@
+> [!note] COPY — canonical version lives in Documents/Publishing/Brand/. Edit there, then re-copy here.
+
 # Alex Savage — Brand Foundation
 
 A working brand document for the Alex Savage pen name, published under the **Savagery & Co.** imprint. This file is the source of truth. The GIMP scripts, the website CSS, the cover assets, and the social templates all pull from here.
@@ -8,7 +10,7 @@ A working brand document for the Alex Savage pen name, published under the **Sav
 
 **Pen name. Action haremlit author.** Writes male-protagonist haremlit across three registers:
 
-- **Sensual / hardboiled fantasy** — the *Undercover Archmage* / *Ravenwick Chronicle* line. Black-ops operator under deep cover at a magic academy. Mature, intimate, painterly cover art.
+- **Sensual / hardboiled fantasy** — the *Undercover Archmage* / *Ravenwick Academy* line. Black-ops operator under deep cover at a magic academy. Mature, intimate, painterly cover art.
 - **Slice-of-life LitRPG** — the *WarMage of Arkley* line. Supremacy-grade mage raising his daughter when the apocalypse turns up next door. Lighter, character-forward, illustrated cover art.
 - **Grimdark isekai / progression** — the *Chirurgeon* / *Hambledon Free Company* line. A Pittsburgh ER nurse pulled into a dying world, a system bracer leveling a trauma medic into the one man a mercenary company can't afford to lose. Darker, bloodier, garnet-anchored.
 
@@ -101,7 +103,7 @@ Each series gets a **color anchor** drawn from the brand palette. Used as the sp
 
 | Series | Color anchor | Hex | Rationale |
 |---|---|---|---|
-| The Ravenwick Chronicle (UA) | Brand gold | `#E8B756` | Aligns with academic/magical illumination, gold-on-purple matches the UA cover style |
+| Ravenwick Academy (UA) | Brand gold | `#E8B756` | Aligns with academic/magical illumination, gold-on-purple matches the UA cover style |
 | The WarMage of Arkley (WA) | Brand coral | `#FF7E94` | Warmer, slice-of-life signal, plays well with the lighter WA art direction |
 | Chirurgeon (the Halloran line) | Garnet | `#8B2E3C` | Blood, the surgeon's table, the grimdark/isekai register. A new dark-red tone, distinct from the gold/coral pair. Text accent lifts to `#C44E60` for legibility on the deep-purple ground. |
 
