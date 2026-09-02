@@ -4,7 +4,7 @@
 
   <url>
     <loc>https://alexsavageauthor.com/</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -16,7 +16,7 @@
   <!-- Series pages -->
   <url>
     <loc>https://alexsavageauthor.com/ravenwick-academy.html</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -36,7 +36,7 @@
   </url>
   <url>
     <loc>https://alexsavageauthor.com/hells-half-acre.html</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -55,7 +55,38 @@
     </image:image>
   </url>
 
+  <url>
+    <loc>https://alexsavageauthor.com/bourbon-and-brimstone.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://alexsavageauthor.com/assets/covers/asw.jpg</image:loc>
+      <image:title>Bourbon &amp; Brimstone — Series</image:title>
+    </image:image>
+  </url>
+
   <!-- Individual book pages -->
+  <url>
+    <loc>https://alexsavageauthor.com/accidental-succubus-wrangler.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://alexsavageauthor.com/assets/covers/asw.jpg</image:loc>
+      <image:title>Accidental Succubus Wrangler — Bourbon &amp; Brimstone Book 1 (pre-order, out 5 September 2026)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://alexsavageauthor.com/undercover-archmage-5.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://alexsavageauthor.com/assets/covers/ua5.jpg</image:loc>
+      <image:title>Undercover Archmage 5 — Ravenwick Academy Book 5</image:title>
+    </image:image>
+  </url>
   <url>
     <loc>https://alexsavageauthor.com/undercover-archmage.html</loc>
     <lastmod>2026-05-16</lastmod>
@@ -88,7 +119,7 @@
   </url>
   <url>
     <loc>https://alexsavageauthor.com/undercover-archmage-4.html</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <image:image>
@@ -118,12 +149,12 @@
   </url>
   <url>
     <loc>https://alexsavageauthor.com/hells-half-acre-1.html</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://alexsavageauthor.com/assets/covers/hha.jpg</image:loc>
-      <image:title>Hell's Half-Acre — Book 1, a monster girl western</image:title>
+      <image:title>Hell's Half-Acre 1: Past Due — a monster girl harem LitRPG</image:title>
     </image:image>
   </url>
   <url>
@@ -184,6 +215,7 @@
 
   <url>
     <loc>https://alexsavageauthor.com/reading-order.html</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
