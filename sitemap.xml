@@ -148,6 +148,16 @@
     </image:image>
   </url>
   <url>
+    <loc>https://alexsavageauthor.com/the-warmage-of-arkley-3.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://alexsavageauthor.com/assets/covers/wa3.jpg</image:loc>
+      <image:title>The WarMage of Arkley 3 — the finale</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://alexsavageauthor.com/hells-half-acre-1.html</loc>
     <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>

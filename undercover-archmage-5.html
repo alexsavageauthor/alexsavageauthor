@@ -39,6 +39,7 @@
 {
   "@context": "https://schema.org",
   "@type": "Book",
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "bestRating": "5", "ratingCount": "20" },
   "name": "Undercover Archmage 5",
   "author": {
     "@type": "Person",
@@ -154,6 +155,8 @@
   .for-readers { background: rgba(255,126,148,0.07); border: 1px solid rgba(255,126,148,0.25); border-left: 3px solid var(--coral); border-radius: 10px; padding: 22px 26px; margin-top: 24px; }
   .for-readers .label { font-family: "Caveat", cursive; color: var(--coral); font-size: 20px; margin: 0 0 8px; display: block; }
   .for-readers p { margin: 0; font-size: 16px; line-height: 1.65; }
+
+  @media (max-width: 560px) { .next-book { grid-template-columns: 1fr !important; justify-items: center; text-align: center; } .next-book > div > div { justify-content: center; } }
 </style>
 </head>
 <body>
@@ -183,6 +186,7 @@
     <div class="eyebrow">Ravenwick Academy · Book 5</div>
     <h1>Undercover Archmage 5</h1>
     <p class="blurb">Never let your best girl go into labor on the night the world ends.</p>
+    <p class="rating" style="margin: -6px 0 16px; font-size: 14px; color: var(--gold-soft, #F4D27A); letter-spacing: 0.02em;"><span aria-hidden="true">★★★★★</span> <strong>4.8</strong> out of 5 &middot; 20 ratings on Amazon</p>
     <div class="tags"><span style="padding: 5px 11px; background: rgba(255,126,148,0.08); border: 1px solid rgba(255,126,148,0.24); border-radius: 4px; color: rgba(245,239,230,0.78); font-size: 11px; text-transform: uppercase; letter-spacing: 0.10em;">Black Ops</span> <span style="padding: 5px 11px; background: rgba(255,126,148,0.08); border: 1px solid rgba(255,126,148,0.24); border-radius: 4px; color: rgba(245,239,230,0.78); font-size: 11px; text-transform: uppercase; letter-spacing: 0.10em;">Magic Academy</span> <span style="padding: 5px 11px; background: rgba(255,126,148,0.08); border: 1px solid rgba(255,126,148,0.24); border-radius: 4px; color: rgba(245,239,230,0.78); font-size: 11px; text-transform: uppercase; letter-spacing: 0.10em;">Action Haremlit</span> <span style="padding: 5px 11px; background: rgba(255,126,148,0.08); border: 1px solid rgba(255,126,148,0.24); border-radius: 4px; color: rgba(245,239,230,0.78); font-size: 11px; text-transform: uppercase; letter-spacing: 0.10em;">New Release</span></div>
     <span class="ku-badge" style="display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px; background: rgba(232,183,86,0.12); border: 1px solid rgba(232,183,86,0.45); border-radius: 999px; color: var(--gold-soft); font-size: 11px; font-weight: 600; letter-spacing: 0.10em; text-transform: uppercase; margin-bottom: 18px;">Available on Kindle Unlimited</span>
     <div style="display: flex; gap: 12px; flex-wrap: wrap;">
@@ -209,13 +213,21 @@
   </div>
 </section>
 
-<section style="padding: 40px 0 80px;">
+<section style="padding: 40px 0 40px;">
   <div class="container">
-    <div style="background: rgba(255,126,148,0.10); border: 1px solid rgba(255,126,148,0.30); border-radius: 14px; padding: 32px; text-align: center; max-width: 720px; margin: 0 auto;">
-      <p style="font-family: 'Caveat', cursive; color: var(--coral); font-size: 22px; margin: 0 0 12px;">— Get the next chapter before everyone else —</p>
-      <p style="font-size: 17px; margin: 0 0 22px; color: rgba(245,239,230,0.88);">Early chapters every Friday, plus bonus scenes, character sketches and the occasional unhinged voice memo about plotting.</p>
-      <a href="https://www.patreon.com/c/SavageryandCo" target="_blank" rel="noopener" class="btn btn-coral">Join Savagery &amp; Co. on Patreon</a>
+    <div class="next-book reveal" style="display: grid; grid-template-columns: 120px 1fr; gap: 26px; align-items: center; max-width: 720px; margin: 0 auto; background: rgba(232,183,86,0.08); border: 1px solid rgba(232,183,86,0.30); border-radius: 14px; padding: 26px 30px;">
+      <a href="hells-half-acre-1.html"><img src="assets/covers/hha.jpg" alt="Hell&rsquo;s Half-Acre 1: Past Due cover" loading="lazy" width="800" height="1200" style="width: 120px; height: auto; border-radius: 6px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);" /></a>
+      <div>
+        <p style="font-family: 'Caveat', cursive; color: var(--gold); font-size: 20px; margin: 0 0 6px;">Finished? Try this one next</p>
+        <h3 style="margin: 0 0 8px; font-size: 24px;"><a href="hells-half-acre-1.html" style="color: inherit; text-decoration: none;">Hell&rsquo;s Half-Acre 1: Past Due</a></h3>
+        <p style="margin: 0 0 16px; color: rgba(245,239,230,0.85); font-size: 16px;">Seven sheriffs. Six of them in the ground.</p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <a href="https://links.alexsavageauthor.com/hha" target="_blank" rel="noopener" class="btn btn-primary">Read on Amazon</a>
+          <a href="hells-half-acre-1.html" class="btn btn-ghost">About the book</a>
+        </div>
+      </div>
     </div>
+    <p style="text-align: center; margin: 22px 0 0; font-size: 15px; color: var(--muted);">Early chapters, bonus scenes and the occasional unhinged voice memo: <a href="https://www.patreon.com/c/SavageryandCo" target="_blank" rel="noopener" style="color: var(--gold);">Savagery &amp; Co. on Patreon</a>.</p>
   </div>
 </section>
 
