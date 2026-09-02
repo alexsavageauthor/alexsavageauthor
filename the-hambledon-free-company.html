@@ -1,11 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="utf-8" />
+<script>document.documentElement.className=document.documentElement.className.replace("no-js","js");</script>
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="referrer" content="strict-origin-when-cross-origin" />
 
-<title>Chirurgeon by Alex Savage — The Hambledon Free Company (Series Guide)</title>
+<title>The Hambledon Free Company — Series Guide | Alex Savage</title>
 <meta name="description" content="Another world. Same bad shift. A Pittsburgh ER nurse pulled into a dying world mid-trauma. Read Chirurgeon, Book 1 of The Hambledon Free Company — out now." />
 <meta name="author" content="Alex Savage" />
 <link rel="canonical" href="https://alexsavageauthor.com/the-hambledon-free-company.html" />
@@ -131,6 +132,11 @@
   /* Reveal */
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
   .reveal.in { opacity: 1; transform: none; }
+  .no-js .reveal { opacity: 1 !important; transform: none !important; }
+  .skip { position: absolute; left: 12px; top: -60px; z-index: 200; background: var(--gold, #e8b756); color: #160C24; font-weight: 700; padding: 10px 16px; border-radius: 4px; text-decoration: none; transition: top .15s; }
+  .skip:focus { top: 12px; outline: 2px solid #fff; outline-offset: 2px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--gold, #e8b756); outline-offset: 3px; border-radius: 3px; }
+  img { height: auto; }
   @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 
   .series-hero { padding: 80px 0 40px; text-align: center; }
@@ -165,6 +171,7 @@
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <nav class="site" aria-label="Primary">
   <div class="container row">
     <a class="brand" href="index.html" aria-label="Alex Savage — home">
@@ -181,6 +188,7 @@
     </div>
   </div>
 </nav>
+<main id="main">
 
 <header class="series-hero container reveal">
   <div class="eyebrow">— Series · Book 1 · Out now —</div>
@@ -215,7 +223,7 @@
       <div class="series-reading-card reveal">
         <div class="rc-cover">
           <span class="preorder-flag">Out now</span>
-          <img src="assets/covers/chir.jpg" alt="Chirurgeon — Book 1 of The Hambledon Free Company, cover by Alex Savage" loading="lazy" />
+          <img src="assets/covers/chir.jpg" alt="Chirurgeon — Book 1 of The Hambledon Free Company, cover by Alex Savage" loading="lazy" width="666" height="1000" />
         </div>
         <div class="rc-info">
           <span class="rc-eyebrow">Book 1</span>
@@ -237,6 +245,7 @@
   </div>
 </section>
 
+</main>
 <footer class="site">
   <div class="container">
     <div class="footer-grid">
@@ -265,12 +274,27 @@
   </div>
 </footer>
 <script>
-  const io = new IntersectionObserver((entries) => {
-    for (const e of entries) {
-      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  /* Safety net (2026-09-02): .reveal starts at opacity 0 in CSS, so if this observer never fires
+     — no IntersectionObserver, a script error, a tab with no rendering frames — the page stayed
+     blank. Now: no-JS shows everything via .no-js, a missing IO shows everything, and a 2.5s
+     timer reveals anything still hidden. */
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('in'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          var e = entries[i];
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        }
+      }, { threshold: 0.12 });
+      els.forEach(function (el) { io.observe(el); });
     }
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    setTimeout(function () {
+      document.querySelectorAll('.reveal:not(.in)').forEach(function (el) { el.classList.add('in'); });
+    }, 2500);
+  })();
 </script>
 </body>
 </html>

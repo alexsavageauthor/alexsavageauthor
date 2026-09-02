@@ -1,12 +1,13 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="utf-8" />
+<script>document.documentElement.className=document.documentElement.className.replace("no-js","js");</script>
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="referrer" content="strict-origin-when-cross-origin" />
 
 <title>Ravenwick Academy by Alex Savage — Series Guide</title>
-<meta name="description" content="A Null. A 9mm. A magic academy full of grad-student glass cannons who haven't realised what's living in their wards. Reading order, world, and the full Ravenwick Academy series by Alex Savage." />
+<meta name="description" content="A Null, a 9mm, and a magic academy of glass cannons who haven't realised what's living in their wards. Reading order and guide to the Ravenwick Academy series." />
 <meta name="author" content="Alex Savage" />
 <link rel="canonical" href="https://alexsavageauthor.com/ravenwick-academy.html" />
 
@@ -166,6 +167,11 @@
   /* Reveal */
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
   .reveal.in { opacity: 1; transform: none; }
+  .no-js .reveal { opacity: 1 !important; transform: none !important; }
+  .skip { position: absolute; left: 12px; top: -60px; z-index: 200; background: var(--gold, #e8b756); color: #160C24; font-weight: 700; padding: 10px 16px; border-radius: 4px; text-decoration: none; transition: top .15s; }
+  .skip:focus { top: 12px; outline: 2px solid #fff; outline-offset: 2px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--gold, #e8b756); outline-offset: 3px; border-radius: 3px; }
+  img { height: auto; }
   @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 
   .series-hero { padding: 80px 0 40px; text-align: center; }
@@ -191,6 +197,7 @@
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <nav class="site" aria-label="Primary">
   <div class="container row">
     <a class="brand" href="index.html" aria-label="Alex Savage — home">
@@ -216,6 +223,7 @@
     <a href="patreon.html">Patreon</a>
   </div>
 </nav>
+<main id="main">
 
 <header class="series-hero container reveal">
   <div class="eyebrow">— Series · 4 books —</div>
@@ -244,7 +252,7 @@
       
         <a href="undercover-archmage.html" class="series-reading-card reveal">
           <div class="rc-cover">
-            <img src="assets/covers/ua1.jpg" alt="Undercover Archmage cover" loading="lazy" />
+            <img src="assets/covers/ua1.jpg" alt="Undercover Archmage cover" loading="lazy" width="354" height="500" />
             <span style="position: absolute; top: 10px; right: 10px; padding: 4px 10px; background: var(--gold); color: #2A1B0F; border-radius: 999px; font-size: 9px; font-weight: 800; letter-spacing: 0.10em; text-transform: uppercase;">Audiobook</span>
           </div>
           <div class="rc-info">
@@ -256,7 +264,7 @@
         </a>
         <a href="undercover-archmage-2.html" class="series-reading-card reveal">
           <div class="rc-cover">
-            <img src="assets/covers/ua2.jpg" alt="Undercover Archmage 2 cover" loading="lazy" />
+            <img src="assets/covers/ua2.jpg" alt="Undercover Archmage 2 cover" loading="lazy" width="1000" height="1414" />
             
           </div>
           <div class="rc-info">
@@ -268,7 +276,7 @@
         </a>
         <a href="undercover-archmage-3.html" class="series-reading-card reveal">
           <div class="rc-cover">
-            <img src="assets/covers/ua3.jpg" alt="Undercover Archmage 3 cover" loading="lazy" />
+            <img src="assets/covers/ua3.jpg" alt="Undercover Archmage 3 cover" loading="lazy" width="1000" height="1414" />
             
           </div>
           <div class="rc-info">
@@ -280,7 +288,7 @@
         </a>
         <a href="undercover-archmage-4.html" class="series-reading-card reveal">
           <div class="rc-cover">
-            <img src="assets/covers/ua4.jpg" alt="Undercover Archmage 4 cover" loading="lazy" />
+            <img src="assets/covers/ua4.jpg" alt="Undercover Archmage 4 cover" loading="lazy" width="832" height="1248" />
             <span style="position: absolute; top: 10px; right: 10px; padding: 4px 10px; background: var(--coral); color: #2A0A11; border-radius: 999px; font-size: 9px; font-weight: 800; letter-spacing: 0.10em; text-transform: uppercase;">New</span>
           </div>
           <div class="rc-info">
@@ -294,6 +302,7 @@
   </div>
 </section>
 
+</main>
 <footer class="site">
   <div class="container">
     <div class="footer-grid">
@@ -322,12 +331,27 @@
   </div>
 </footer>
 <script>
-  const io = new IntersectionObserver((entries) => {
-    for (const e of entries) {
-      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  /* Safety net (2026-09-02): .reveal starts at opacity 0 in CSS, so if this observer never fires
+     — no IntersectionObserver, a script error, a tab with no rendering frames — the page stayed
+     blank. Now: no-JS shows everything via .no-js, a missing IO shows everything, and a 2.5s
+     timer reveals anything still hidden. */
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('in'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          var e = entries[i];
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        }
+      }, { threshold: 0.12 });
+      els.forEach(function (el) { io.observe(el); });
     }
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    setTimeout(function () {
+      document.querySelectorAll('.reveal:not(.in)').forEach(function (el) { el.classList.add('in'); });
+    }, 2500);
+  })();
 
   /* Mobile menu */
   (function() {

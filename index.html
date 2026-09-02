@@ -1,13 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="utf-8" />
+<script>document.documentElement.className=document.documentElement.className.replace("no-js","js");</script>
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-<!--
-  REPLACE: swap https://alexsavageauthor.com for the actual domain once hosted.
-  Search the file for "alexsavageauthor.com" to find every spot that needs the swap.
--->
 
 <title>Alex Savage — Action Haremlit &amp; LitRPG Author</title>
 <meta name="description" content="Action haremlit by Alex Savage. Ravenwick Academy and The WarMage of Arkley on Kindle Unlimited, plus Hell's Half-Acre, a monster girl western, out now." />
@@ -48,7 +45,6 @@
 
 <!-- Privacy-friendly analytics by Plausible -->
 <script defer data-domain="alexsavageauthor.com" src="https://plausible.io/js/script.js"></script>
-<!-- After registering alexsavageauthor.com at plausible.io, swap this for your custom snippet. -->
 
 <meta name="referrer" content="strict-origin-when-cross-origin" />
 
@@ -1204,6 +1200,11 @@
   /* Reveal */
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
   .reveal.in { opacity: 1; transform: none; }
+  .no-js .reveal { opacity: 1 !important; transform: none !important; }
+  .skip { position: absolute; left: 12px; top: -60px; z-index: 200; background: var(--gold, #e8b756); color: #160C24; font-weight: 700; padding: 10px 16px; border-radius: 4px; text-decoration: none; transition: top .15s; }
+  .skip:focus { top: 12px; outline: 2px solid #fff; outline-offset: 2px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--gold, #e8b756); outline-offset: 3px; border-radius: 3px; }
+  img { height: auto; }
   @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; transition: none; }
   }
@@ -1308,6 +1309,7 @@
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <!-- ════════════ NAV ════════════ -->
 <nav class="site" aria-label="Primary">
@@ -1340,12 +1342,13 @@
     <a href="#contact">Contact</a>
   </div>
 </nav>
+<main id="main">
 
 <!-- ════════════ LAUNCH BANNER ════════════ -->
 <a class="launch-banner" href="https://alexsavage-links.vercel.app/hha" target="_blank" rel="noopener" aria-label="Hell&rsquo;s Half-Acre out now on Amazon" style="background: linear-gradient(90deg, rgba(168,64,26,0.28) 0%, rgba(224,103,43,0.16) 100%); border-bottom-color: rgba(224,103,43,0.36); border-top-color: rgba(168,64,26,0.32);">
   <div class="container launch-row">
     <span class="launch-thumb">
-      <picture><source srcset="assets/covers/hha.webp" type="image/webp"><img src="assets/covers/hha.jpg" alt="" loading="eager" fetchpriority="high" decoding="async" /></picture>
+      <picture><source srcset="assets/covers/hha.webp" type="image/webp"><img src="assets/covers/hha.jpg" alt="" loading="eager" fetchpriority="high" decoding="async" width="800" height="1200" /></picture>
     </span>
     <span class="launch-text">
       <span class="launch-tag" style="color:#F2A06B;">★ New · Out today</span>
@@ -1371,14 +1374,14 @@
 
     <div class="cover-stack reveal" aria-hidden="false">
       <a class="cover c-back-left" href="https://alexsavage-links.vercel.app/ua2" target="_blank" rel="noopener" aria-label="Undercover Archmage Book 2">
-        <picture><source srcset="assets/covers/ua2.webp" type="image/webp"><img src="assets/covers/ua2.jpg" alt="Undercover Archmage Book 2" loading="lazy" decoding="async" /></picture>
+        <picture><source srcset="assets/covers/ua2.webp" type="image/webp"><img src="assets/covers/ua2.jpg" alt="Undercover Archmage Book 2" loading="lazy" decoding="async" width="1000" height="1414" /></picture>
       </a>
       <a class="cover c-back-right" href="https://alexsavage-links.vercel.app/ua3" target="_blank" rel="noopener" aria-label="Undercover Archmage Book 3">
-        <picture><source srcset="assets/covers/ua3.webp" type="image/webp"><img src="assets/covers/ua3.jpg" alt="Undercover Archmage Book 3" loading="lazy" decoding="async" /></picture>
+        <picture><source srcset="assets/covers/ua3.webp" type="image/webp"><img src="assets/covers/ua3.jpg" alt="Undercover Archmage Book 3" loading="lazy" decoding="async" width="1000" height="1414" /></picture>
       </a>
       <a class="cover c-front" href="https://alexsavage-links.vercel.app/ua1" target="_blank" rel="noopener" aria-label="Undercover Archmage Book 1 — start here">
         <span class="start-here-ribbon">Start Here</span>
-        <picture><source srcset="assets/covers/ua1.webp" type="image/webp"><img src="assets/covers/ua1.jpg" alt="Undercover Archmage Book 1 — magic academy haremlit novel by Alex Savage" loading="lazy" decoding="async" /></picture>
+        <picture><source srcset="assets/covers/ua1.webp" type="image/webp"><img src="assets/covers/ua1.jpg" alt="Undercover Archmage Book 1 — magic academy haremlit novel by Alex Savage" loading="lazy" decoding="async" width="354" height="500" /></picture>
       </a>
     </div>
   </div>
@@ -1394,30 +1397,30 @@
 
     <!-- Launch announce — Hell's Half-Acre (newest) -->
     <a class="start-here-banner reveal" href="#series-hells-half-acre" style="background: rgba(168,64,26,0.18); border-color: rgba(224,103,43,0.40);">
-      <span class="thumb"><picture><source srcset="assets/covers/hha.webp" type="image/webp"><img src="assets/covers/hha.jpg" alt="" loading="lazy" decoding="async" /></picture></span>
+      <span class="thumb"><picture><source srcset="assets/covers/hha.webp" type="image/webp"><img src="assets/covers/hha.jpg" alt="" loading="lazy" decoding="async" width="800" height="1200" /></picture></span>
       <span><strong style="color:#F2A06B;">New — out now:</strong> <em>Hell&rsquo;s Half-Acre</em>, a monster girl western <span class="arrow">→</span></span>
     </a>
 
     <!-- Free sample lead magnet promo -->
     <a class="start-here-banner reveal" href="https://www.patreon.com/c/SavageryandCo" target="_blank" rel="noopener" style="background: rgba(232,183,86,0.12); border-color: rgba(232,183,86,0.35);">
-      <span class="thumb"><picture><source srcset="assets/covers/ua1.webp" type="image/webp"><img src="assets/covers/ua1.jpg" alt="" loading="lazy" decoding="async" /></picture></span>
+      <span class="thumb"><picture><source srcset="assets/covers/ua1.webp" type="image/webp"><img src="assets/covers/ua1.jpg" alt="" loading="lazy" decoding="async" width="354" height="500" /></picture></span>
       <span><strong>Start reading free</strong> — opening chapters of Undercover Archmage, free on Patreon <span class="arrow">→</span></span>
     </a>
 
     <a class="start-here-banner reveal" href="#series-undercover-archmage">
-      <span class="thumb"><picture><source srcset="assets/covers/ua1.webp" type="image/webp"><img src="assets/covers/ua1.jpg" alt="" loading="lazy" decoding="async" /></picture></span>
+      <span class="thumb"><picture><source srcset="assets/covers/ua1.webp" type="image/webp"><img src="assets/covers/ua1.jpg" alt="" loading="lazy" decoding="async" width="354" height="500" /></picture></span>
       <span><strong>New here?</strong> Start with <em>Undercover Archmage</em> Book&nbsp;1 <span class="arrow">→</span></span>
     </a>
 
     <!-- Launch announce — Undercover Archmage audiobook -->
     <a class="start-here-banner reveal" href="https://alexsavage-links.vercel.app/ua1?format=audible" target="_blank" rel="noopener" style="background: rgba(232,183,86,0.14); border-color: rgba(232,183,86,0.4);">
-      <span class="thumb"><picture><source srcset="assets/covers/ua1.webp" type="image/webp"><img src="assets/covers/ua1.jpg" alt="" loading="lazy" decoding="async" /></picture></span>
+      <span class="thumb"><picture><source srcset="assets/covers/ua1.webp" type="image/webp"><img src="assets/covers/ua1.jpg" alt="" loading="lazy" decoding="async" width="354" height="500" /></picture></span>
       <span><strong style="color:#F4D27A;">New — now on audio:</strong> <em>Undercover Archmage</em>, narrated by Summer Moon · listen on Audible <span class="arrow">→</span></span>
     </a>
 
     <!-- Coming next — WarMage 3 -->
     <a class="start-here-banner reveal" href="https://alexsavage-links.vercel.app/wa3" target="_blank" rel="noopener" style="background: rgba(255,126,148,0.10); border-color: rgba(255,126,148,0.32);">
-      <span class="thumb"><picture><source srcset="assets/covers/wa3-200.webp" type="image/webp"><img src="assets/covers/wa3.jpg" alt="The WarMage of Arkley 3 cover" loading="lazy" decoding="async" /></picture></span>
+      <span class="thumb"><picture><source srcset="assets/covers/wa3-200.webp" type="image/webp"><img src="assets/covers/wa3.jpg" alt="The WarMage of Arkley 3 cover" loading="lazy" decoding="async" width="1000" height="1778" /></picture></span>
       <span><strong style="color: var(--coral);">Out now:</strong> <em>The WarMage of Arkley&nbsp;3</em> — the trilogy is complete <span class="arrow">→</span></span>
     </a>
 
@@ -1427,7 +1430,7 @@
       <article class="series-card reveal" id="series-undercover-archmage">
         <div class="hero-cover">
           <span class="badge">Book 1 of 4 · Ongoing</span>
-          <picture><source srcset="assets/covers/ua1.webp" type="image/webp"><img src="assets/covers/ua1.jpg" alt="Undercover Archmage Book 1 cover — Alex Savage" loading="lazy" decoding="async" /></picture>
+          <picture><source srcset="assets/covers/ua1.webp" type="image/webp"><img src="assets/covers/ua1.jpg" alt="Undercover Archmage Book 1 cover — Alex Savage" loading="lazy" decoding="async" width="354" height="500" /></picture>
         </div>
         <div>
           <h3>Undercover Archmage</h3>
@@ -1447,13 +1450,13 @@
           <div class="more-row">
             <span class="label">Also in this series:</span>
             <a class="thumb" href="https://alexsavage-links.vercel.app/ua2" target="_blank" rel="noopener" aria-label="Undercover Archmage Book 2">
-              <picture><source srcset="assets/covers/ua2.webp" type="image/webp"><img src="assets/covers/ua2.jpg" alt="Undercover Archmage Book 2" loading="lazy" decoding="async" /></picture>
+              <picture><source srcset="assets/covers/ua2.webp" type="image/webp"><img src="assets/covers/ua2.jpg" alt="Undercover Archmage Book 2" loading="lazy" decoding="async" width="1000" height="1414" /></picture>
             </a>
             <a class="thumb" href="https://alexsavage-links.vercel.app/ua3" target="_blank" rel="noopener" aria-label="Undercover Archmage Book 3">
-              <picture><source srcset="assets/covers/ua3.webp" type="image/webp"><img src="assets/covers/ua3.jpg" alt="Undercover Archmage Book 3" loading="lazy" decoding="async" /></picture>
+              <picture><source srcset="assets/covers/ua3.webp" type="image/webp"><img src="assets/covers/ua3.jpg" alt="Undercover Archmage Book 3" loading="lazy" decoding="async" width="1000" height="1414" /></picture>
             </a>
             <a class="thumb is-new" href="https://alexsavage-links.vercel.app/ua4" target="_blank" rel="noopener" aria-label="Undercover Archmage Book 4 — now available">
-              <picture><source srcset="assets/covers/ua4.webp" type="image/webp"><img src="assets/covers/ua4.jpg" alt="Undercover Archmage Book 4 — now available" loading="lazy" decoding="async" /></picture>
+              <picture><source srcset="assets/covers/ua4.webp" type="image/webp"><img src="assets/covers/ua4.jpg" alt="Undercover Archmage Book 4 — now available" loading="lazy" decoding="async" width="832" height="1248" /></picture>
             </a>
           </div>
           <p class="cross-link">Want stakes that move at school-run speed? Try <a href="#series-warmage-arkley">The WarMage of Arkley</a> — a System-interface apocalypse with marshmallows.</p>
@@ -1475,7 +1478,7 @@
       <article class="series-card reveal" id="series-hells-half-acre">
         <div class="hero-cover">
           <span class="badge">Book 1 · Out now</span>
-          <picture><source srcset="assets/covers/hha.webp" type="image/webp"><img src="assets/covers/hha.jpg" alt="Hell&rsquo;s Half-Acre Book 1 cover — a monster girl western by Alex Savage" loading="lazy" decoding="async" /></picture>
+          <picture><source srcset="assets/covers/hha.webp" type="image/webp"><img src="assets/covers/hha.jpg" alt="Hell&rsquo;s Half-Acre Book 1 cover — a monster girl western by Alex Savage" loading="lazy" decoding="async" width="800" height="1200" /></picture>
         </div>
         <div>
           <h3>Hell&rsquo;s Half-Acre</h3>
@@ -1502,7 +1505,7 @@
       <article class="series-card reveal" id="series-warmage-arkley">
         <div class="hero-cover">
           <span class="badge">Book 1 of 3 · trilogy complete</span>
-          <picture><source srcset="assets/covers/wa1.webp" type="image/webp"><img src="assets/covers/wa1.jpg" alt="The WarMage of Arkley Book 1 cover — Alex Savage" loading="lazy" decoding="async" /></picture>
+          <picture><source srcset="assets/covers/wa1.webp" type="image/webp"><img src="assets/covers/wa1.jpg" alt="The WarMage of Arkley Book 1 cover — Alex Savage" loading="lazy" decoding="async" width="832" height="1248" /></picture>
         </div>
         <div>
           <h3>The WarMage of Arkley</h3>
@@ -1522,10 +1525,10 @@
           <div class="more-row">
             <span class="label">Also in this series:</span>
             <a class="thumb" href="https://alexsavage-links.vercel.app/wa2" target="_blank" rel="noopener" aria-label="The WarMage of Arkley Book 2">
-              <picture><source srcset="assets/covers/wa2.webp" type="image/webp"><img src="assets/covers/wa2.jpg" alt="The WarMage of Arkley Book 2" loading="lazy" decoding="async" /></picture>
+              <picture><source srcset="assets/covers/wa2.webp" type="image/webp"><img src="assets/covers/wa2.jpg" alt="The WarMage of Arkley Book 2" loading="lazy" decoding="async" width="832" height="1248" /></picture>
             </a>
             <a class="thumb is-new" href="https://alexsavage-links.vercel.app/wa3" target="_blank" rel="noopener" aria-label="The WarMage of Arkley Book 3 — out now">
-              <picture><source srcset="assets/covers/wa3-200.webp" type="image/webp"><img src="assets/covers/wa3.jpg" alt="The WarMage of Arkley Book 3 — out now" loading="lazy" decoding="async" /></picture>
+              <picture><source srcset="assets/covers/wa3-200.webp" type="image/webp"><img src="assets/covers/wa3.jpg" alt="The WarMage of Arkley Book 3 — out now" loading="lazy" decoding="async" width="1000" height="1778" /></picture>
             </a>
           </div>
           <p class="cross-link">Prefer your action with tradecraft? <a href="#series-undercover-archmage">Undercover Archmage</a> swaps the dimensional tear for a 9mm and a class of grad-student glass cannons.</p>
@@ -1548,7 +1551,7 @@
       <article class="series-card reveal" id="series-hambledon-free-company">
         <div class="hero-cover">
           <span class="badge">Book 1</span>
-          <picture><source srcset="assets/covers/chir.webp" type="image/webp"><img src="assets/covers/chir.jpg" alt="Chirurgeon Book 1 cover — The Hambledon Free Company by Alex Savage" loading="lazy" decoding="async" /></picture>
+          <picture><source srcset="assets/covers/chir.webp" type="image/webp"><img src="assets/covers/chir.jpg" alt="Chirurgeon Book 1 cover — The Hambledon Free Company by Alex Savage" loading="lazy" decoding="async" width="666" height="1000" /></picture>
         </div>
         <div>
           <h3>Chirurgeon</h3>
@@ -1637,7 +1640,7 @@
       <div class="about-portrait reveal">
         <picture>
           <source srcset="assets/alex-savage-portrait-social/profile-800.jpg 800w, assets/alex-savage-portrait-social/profile-1024.jpg 1024w, assets/alex-savage-portrait-social/profile-2048.jpg 2048w" sizes="(max-width: 900px) 100vw, 480px" />
-          <img src="assets/alex-savage-portrait.jpg" alt="Alex Savage — a hooded figure in profile against a deep-purple sky, gold sparks at the shoulder. The author mark." loading="lazy" decoding="async" />
+          <img src="assets/alex-savage-portrait.jpg" alt="Alex Savage — a hooded figure in profile against a deep-purple sky, gold sparks at the shoulder. The author mark." loading="lazy" decoding="async" width="720" height="1280" />
         </picture>
       </div>
       <div class="reveal">
@@ -1697,6 +1700,7 @@
 </section>
 
 <!-- ════════════ FOOTER ════════════ -->
+</main>
 <footer class="site" id="contact">
   <div class="container">
     <div class="footer-grid">
@@ -1729,15 +1733,27 @@
 </footer>
 
 <script>
-  const io = new IntersectionObserver((entries) => {
-    for (const e of entries) {
-      if (e.isIntersecting) {
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      }
+  /* Safety net (2026-09-02): .reveal starts at opacity 0 in CSS, so if this observer never fires
+     — no IntersectionObserver, a script error, a tab with no rendering frames — the page stayed
+     blank. Now: no-JS shows everything via .no-js, a missing IO shows everything, and a 2.5s
+     timer reveals anything still hidden. */
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('in'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          var e = entries[i];
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        }
+      }, { threshold: 0.12 });
+      els.forEach(function (el) { io.observe(el); });
     }
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    setTimeout(function () {
+      document.querySelectorAll('.reveal:not(.in)').forEach(function (el) { el.classList.add('in'); });
+    }, 2500);
+  })();
 
   /* Newsletter form — posts to MailerLite without page reload.
      Wired to "Alex Savage Site — Newsletter Signup" (consolidated account 2489284, form 192551302038815894, double opt-in). Repointed 2026-08-01 from legacy account 1042369. */
