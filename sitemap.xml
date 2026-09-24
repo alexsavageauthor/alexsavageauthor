@@ -4,7 +4,7 @@
 
   <url>
     <loc>https://alexsavageauthor.com/</loc>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -35,18 +35,18 @@
     </image:image>
   </url>
   <url>
-    <loc>https://alexsavageauthor.com/hells-half-acre.html</loc>
-    <lastmod>2026-09-18</lastmod>
+    <loc>https://alexsavageauthor.com/monster-girl-sheriff.html</loc>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://alexsavageauthor.com/assets/og/og-series-hells-half-acre.jpg</image:loc>
-      <image:title>Hell's Half-Acre — Series</image:title>
+      <image:loc>https://alexsavageauthor.com/assets/og/og-series-monster-girl-sheriff.jpg</image:loc>
+      <image:title>Monster Girl Sheriff — Series</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://alexsavageauthor.com/the-hambledon-free-company.html</loc>
-    <lastmod>2026-05-31</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -57,7 +57,7 @@
 
   <url>
     <loc>https://alexsavageauthor.com/bourbon-and-brimstone.html</loc>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -69,12 +69,12 @@
   <!-- Individual book pages -->
   <url>
     <loc>https://alexsavageauthor.com/accidental-succubus-wrangler.html</loc>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://alexsavageauthor.com/assets/covers/asw.jpg</image:loc>
-      <image:title>Accidental Succubus Wrangler — Bourbon &amp; Brimstone Book 1 (pre-order, out 5 September 2026)</image:title>
+      <image:title>Accidental Succubus Wrangler — Bourbon &amp; Brimstone Book 1</image:title>
     </image:image>
   </url>
   <url>
@@ -119,7 +119,7 @@
   </url>
   <url>
     <loc>https://alexsavageauthor.com/undercover-archmage-4.html</loc>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <image:image>
@@ -129,7 +129,7 @@
   </url>
   <url>
     <loc>https://alexsavageauthor.com/the-warmage-of-arkley-1.html</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <image:image>
@@ -149,7 +149,7 @@
   </url>
   <url>
     <loc>https://alexsavageauthor.com/the-warmage-of-arkley-3.html</loc>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <image:image>
@@ -158,23 +158,44 @@
     </image:image>
   </url>
   <url>
-    <loc>https://alexsavageauthor.com/hells-half-acre-1.html</loc>
-    <lastmod>2026-09-18</lastmod>
+    <loc>https://alexsavageauthor.com/monster-girl-sheriff-1.html</loc>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://alexsavageauthor.com/assets/covers/hha.jpg</image:loc>
-      <image:title>Hell's Half-Acre 1: Past Due — a monster girl harem LitRPG</image:title>
+      <image:loc>https://alexsavageauthor.com/assets/covers/mgs.jpg</image:loc>
+      <image:title>Monster Girl Sheriff 1: Past Due — a monster girl harem LitRPG</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://alexsavageauthor.com/chirurgeon-1.html</loc>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://alexsavageauthor.com/assets/covers/chir.jpg</image:loc>
       <image:title>Chirurgeon — The Hambledon Free Company Book 1</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://alexsavageauthor.com/chirurgeon-2.html</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://alexsavageauthor.com/assets/covers/chir2.jpg</image:loc>
+      <image:title>Chirurgeon 2 — The Hambledon Free Company Book 2</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://alexsavageauthor.com/accidental-succubus-wrangler-2.html</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://alexsavageauthor.com/assets/covers/asw2.jpg</image:loc>
+      <image:title>Accidental Succubus Wrangler 2 — Bourbon &amp; Brimstone Book 2</image:title>
     </image:image>
   </url>
 
@@ -225,7 +246,7 @@
 
   <url>
     <loc>https://alexsavageauthor.com/reading-order.html</loc>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
