@@ -1,0 +1,9 @@
+# GitHub Pages build settings.
+# Internal files stay in the repo (the brand scripts read them) but are not published.
+# Added 2026-11-21: the brand strategy doc and deploy files were publicly readable.
+exclude:
+  - brand
+  - deploy.sh
+  - deploy-workflow.yml.txt
+  - _to_delete
+  - README.md
