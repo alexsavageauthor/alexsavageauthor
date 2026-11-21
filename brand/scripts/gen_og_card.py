@@ -26,6 +26,8 @@ COVERS, OG = ASSETS / "covers", ASSETS / "og"
 GARNET = ((139, 46, 60), (196, 78, 96), (224, 122, 138))
 EMBER = ((168, 64, 26), (224, 103, 43), (240, 150, 100))
 BOURBON = ((184, 116, 31), (224, 154, 60), (243, 199, 126))
+TEAL = ((30, 111, 127), (63, 179, 196), (127, 211, 222))
+FROST = ((76, 106, 136), (134, 169, 204), (180, 205, 230))
 
 CARDS = {
     "og-series-chirurgeon": dict(
@@ -49,6 +51,18 @@ CARDS = {
         hook="Sixteen days. Four succubi.",
         tagline=("Three succubi now with his surname, a warrant nailed to his bar's door, "
                  "and Hell's most implacable Hunter lodging up the street.")),
+    # Hook and tagline lines are her Amazon blurbs, verbatim (2026-11-21).
+    "og-spacecats-are-easy": dict(
+        cover="sc1.jpg", pal=TEAL, kicker="CATGIRLS IN SPACE   ·   HAREM LITRPG",
+        hook="Male. And delivered alive.",
+        tagline=("On a moonless night, Beau Lomax was fifty-five feet underwater on a Spanish "
+                 "treasure wreck that didn't belong to him when the seabed suddenly lit up "
+                 "bright blue and sucked him down.")),
+    "og-stone-cold-archmage": dict(
+        cover="sca.jpg", pal=FROST, kicker="DARK AGE ACADEMY   ·   MAGIC ACADEMY FANTASY",
+        hook="The statue went and sneezed.",
+        tagline=("For more than fifteen hundred years, Madoc has stood on that plinth with "
+                 "the last syllable of a spell held in his mouth.")),
 }
 
 
