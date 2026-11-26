@@ -9,13 +9,32 @@
     <title>Undercover Archmage — Ravenwick Academy Book 1 | Alex Savage</title>
 
     <!-- ============================================================
-         TRACKING PIXEL: NOT INSTALLED.
-         This page is pixel-ready only. When the Meta Pixel is added
-         to alexsavageauthor.com, paste the Pixel base code here,
-         directly above </head>, and fire a ViewContent event for
-         Undercover Archmage Book 1 (ASIN B0GHJ59SCV).
-         No pixel, tag, or ad account is created by this page.
+         TRACKING PIXEL: INSTALLED 26 Nov 2026.
+         Meta Pixel "Alex Savage - Undercover Archmage"
+         (ID 4543450602649657, PJ Merrell portfolio).
+         Base code below fires PageView and ViewContent for
+         Undercover Archmage Book 1 (ASIN B0GHJ59SCV). A Lead event
+         fires on every Amazon-button click (script before </body>).
          ============================================================ -->
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '4543450602649657');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent', {content_name: 'Undercover Archmage Book 1', content_ids: ['B0GHJ59SCV'], content_type: 'product'});
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=4543450602649657&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -596,7 +615,7 @@
     <footer class="site">
       <div class="wrap">
         <p><em>Undercover Archmage: A Magic Academy Adventure</em> (Ravenwick Academy Book 1) by Alex Savage · <a href="https://alexsavageauthor.com">alexsavageauthor.com</a></p>
-        <p>Prices and ratings as listed on Amazon and Goodreads, November 25, 2026 — they can change; the Amazon listing is the one that counts. This page installs no tracking pixel and runs no ads; it is ready for a pixel to be added to the site.</p>
+        <p>Prices and ratings as listed on Amazon and Goodreads, November 25, 2026 — they can change; the Amazon listing is the one that counts. This page uses the Meta Pixel to measure visits and Amazon-button clicks for the Undercover Archmage ad campaign.</p>
       </div>
     </footer>
 
@@ -611,5 +630,17 @@
         <a class="btn-shop" href="https://www.amazon.com/dp/B0GHJ59SCV" target="_blank" rel="noopener">Read or Listen</a>
       </div>
     </div>
+    <script>
+    // Fire a Meta Pixel Lead event on every Amazon-button click.
+    document.querySelectorAll('a[href*="amazon.com/dp/"]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        var asin = (link.getAttribute('href').match(/\/dp\/([A-Z0-9]+)/) || [])[1] || 'B0GHJ59SCV';
+        var name = asin === 'B0GHYNL3JF' ? 'Undercover Archmage Book 2' : 'Undercover Archmage Book 1';
+        if (window.fbq) {
+          fbq('track', 'Lead', {content_name: name, content_ids: [asin], content_type: 'product'});
+        }
+      });
+    });
+    </script>
   </body>
 </html>
