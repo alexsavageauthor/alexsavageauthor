@@ -631,6 +631,20 @@
       </div>
     </div>
     <script>
+    // Swap Book 1 Amazon links for the per-ad Amazon Attribution tag, when the
+    // visitor arrived from a Meta ad (?ad=A, ?ad=B or ?ad=C). Tags from the
+    // "Undercover Archmage Book 1" Attribution campaign (ID 594327498516598273).
+    var adTags = {
+      A: 'https://www.amazon.com/dp/B0GHJ59SCV?maas=maas_adg_816E3F8F315D75E19DF065458545E971_afap_abs&ref_=aa_maas&tag=maas',
+      B: 'https://www.amazon.com/dp/B0GHJ59SCV?maas=maas_adg_4EEB04E3AEE6158EDA439AE37F46E2BB_afap_abs&ref_=aa_maas&tag=maas',
+      C: 'https://www.amazon.com/dp/B0GHJ59SCV?maas=maas_adg_2563F9A21E248351CC1A51D1A159D66A_afap_abs&ref_=aa_maas&tag=maas'
+    };
+    var adParam = (new URLSearchParams(window.location.search).get('ad') || '').toUpperCase();
+    if (adTags[adParam]) {
+      document.querySelectorAll('a[href*="amazon.com/dp/B0GHJ59SCV"]').forEach(function (link) {
+        link.setAttribute('href', adTags[adParam]);
+      });
+    }
     // Fire a Meta Pixel Lead event on every Amazon-button click.
     document.querySelectorAll('a[href*="amazon.com/dp/"]').forEach(function (link) {
       link.addEventListener('click', function () {
