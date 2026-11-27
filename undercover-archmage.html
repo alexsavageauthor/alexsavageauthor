@@ -9,12 +9,15 @@
     <title>Undercover Archmage — Ravenwick Academy Book 1 | Alex Savage</title>
 
     <!-- ============================================================
-         TRACKING PIXEL: INSTALLED 26 Nov 2026.
+         TRACKING PIXEL: INSTALLED 26 Nov 2026; LEAD REVISED 27 Nov 2026.
          Meta Pixel "Alex Savage - Undercover Archmage"
          (ID 4543450602649657, PJ Merrell portfolio).
          Base code below fires PageView and ViewContent for
          Undercover Archmage Book 1 (ASIN B0GHJ59SCV). A Lead event
-         fires on every Amazon-button click (script before </body>).
+         fires only on the FIRST Book 1 Kindle/KU button click per
+         visit (script before </body>). Audible clicks fire a custom
+         AudibleClick event and Book 2 clicks a custom Book2Click
+         event; neither counts as a Lead.
          ============================================================ -->
 
     <!-- Meta Pixel Code -->
@@ -645,13 +648,35 @@
         link.setAttribute('href', adTags[adParam]);
       });
     }
-    // Fire a Meta Pixel Lead event on every Amazon-button click.
+    // Lead tracking, revised 27 Nov 2026 (ChatGPT review):
+    // "Lead" fires ONLY on the first Book 1 Kindle/KU button click per visit.
+    // Audible clicks and Book 2 clicks are recorded as separate custom events
+    // and do NOT count as a Lead. Repeat taps do not fire Lead again.
+    // Kindle/KU buttons are the .btn-shop links to Book 1 (B0GHJ59SCV).
+    // The Audible button is .btn-audible; the Book 2 button links to B0GHYNL3JF.
+    var ua1LeadFired = false;
+    try { ua1LeadFired = window.sessionStorage && sessionStorage.getItem('ua1_lead_fired') === '1'; } catch (e) {}
+    function ua1MarkLeadFired() {
+      ua1LeadFired = true;
+      try { if (window.sessionStorage) sessionStorage.setItem('ua1_lead_fired', '1'); } catch (e) {}
+    }
     document.querySelectorAll('a[href*="amazon.com/dp/"]').forEach(function (link) {
       link.addEventListener('click', function () {
-        var asin = (link.getAttribute('href').match(/\/dp\/([A-Z0-9]+)/) || [])[1] || 'B0GHJ59SCV';
-        var name = asin === 'B0GHYNL3JF' ? 'Undercover Archmage Book 2' : 'Undercover Archmage Book 1';
-        if (window.fbq) {
-          fbq('track', 'Lead', {content_name: name, content_ids: [asin], content_type: 'product'});
+        if (!window.fbq) return;
+        var href = link.getAttribute('href') || '';
+        var asin = (href.match(/\/dp\/([A-Z0-9]+)/) || [])[1] || 'B0GHJ59SCV';
+        if (asin === 'B0GHYNL3JF') {
+          fbq('trackCustom', 'Book2Click', {content_name: 'Undercover Archmage Book 2', content_ids: [asin], content_type: 'product'});
+          return;
+        }
+        if (link.classList && link.classList.contains('btn-audible')) {
+          fbq('trackCustom', 'AudibleClick', {content_name: 'Undercover Archmage Book 1 Audiobook', content_ids: [asin], content_type: 'product'});
+          return;
+        }
+        // Book 1 Kindle/KU button: fire Lead once per visit only.
+        if (!ua1LeadFired) {
+          ua1MarkLeadFired();
+          fbq('track', 'Lead', {content_name: 'Undercover Archmage Book 1', content_ids: [asin], content_type: 'product'});
         }
       });
     });
