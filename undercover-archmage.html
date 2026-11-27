@@ -9,34 +9,65 @@
     <title>Undercover Archmage — Ravenwick Academy Book 1 | Alex Savage</title>
 
     <!-- ============================================================
-         TRACKING PIXEL: INSTALLED 26 Nov 2026; LEAD REVISED 27 Nov 2026.
+         TRACKING PIXEL: INSTALLED 26 Nov 2026; LEAD REVISED 27 Nov 2026;
+         CONSENT-GATED FOR UK VISITORS 27 Nov 2026.
          Meta Pixel "Alex Savage - Undercover Archmage"
          (ID 4543450602649657, PJ Merrell portfolio).
-         Base code below fires PageView and ViewContent for
-         Undercover Archmage Book 1 (ASIN B0GHJ59SCV). A Lead event
-         fires only on the FIRST Book 1 Kindle/KU button click per
-         visit (script before </body>). Audible clicks fire a custom
-         AudibleClick event and Book 2 clicks a custom Book2Click
-         event; neither counts as a Lead.
+         US visitors: the Pixel loads exactly as before (no banner).
+         UK visitors (timezone Europe/London or locale en-GB; ?uk=1
+         forces UK, ?uk=0 forces US): the Pixel only loads after the
+         visitor accepts cookies via the banner (script before
+         </body>). With no choice, or a decline, fbq is never defined
+         and no Pixel event fires. The choice is stored in
+         localStorage ('ua1_pixel_consent' = 'accepted' | 'declined').
+         A Lead event fires only on the FIRST Book 1 Kindle/KU button
+         click per visit (script before </body>). Audible clicks fire a
+         custom AudibleClick event and Book 2 clicks a custom
+         Book2Click event; neither counts as a Lead.
+         The old <noscript> PageView beacon was removed with this
+         change: it fired unconditionally, including for UK visitors
+         who had not consented, and it cannot be consent-gated.
          ============================================================ -->
 
     <!-- Meta Pixel Code -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '4543450602649657');
-    fbq('track', 'PageView');
-    fbq('track', 'ViewContent', {content_name: 'Undercover Archmage Book 1', content_ids: ['B0GHJ59SCV'], content_type: 'product'});
+    var ua1IsUK = false;
+    try {
+      var _ua1UkParam = (new URLSearchParams(window.location.search).get('uk') || '');
+      var _ua1Tz = (window.Intl && Intl.DateTimeFormat().resolvedOptions().timeZone) || '';
+      var _ua1Langs = (((navigator.languages || []).join(' ') + ' ' + (navigator.language || '')).toLowerCase());
+      ua1IsUK = _ua1Tz === 'Europe/London' || _ua1Langs.indexOf('en-gb') !== -1;
+      if (_ua1UkParam === '1') ua1IsUK = true;
+      if (_ua1UkParam === '0') ua1IsUK = false;
+    } catch (e) {}
+    var ua1PixelConsent = null;
+    try { ua1PixelConsent = window.localStorage && localStorage.getItem('ua1_pixel_consent'); } catch (e) {}
+    window.ua1IsUK = ua1IsUK;
+    window.ua1PixelConsent = ua1PixelConsent;
+    // Load fbevents.js and fire PageView + ViewContent. Runs on load for
+    // non-UK visitors and for UK visitors who already accepted; runs from
+    // the cookie banner's Accept button for UK visitors who accept now.
+    // Guarded so it can only ever run once per page load.
+    window.ua1PixelReady = false;
+    window.ua1InitPixel = function () {
+      if (window.ua1PixelReady) return;
+      window.ua1PixelReady = true;
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '4543450602649657');
+      fbq('track', 'PageView');
+      fbq('track', 'ViewContent', {content_name: 'Undercover Archmage Book 1', content_ids: ['B0GHJ59SCV'], content_type: 'product'});
+    };
+    if (!ua1IsUK || ua1PixelConsent === 'accepted') {
+      window.ua1InitPixel();
+    }
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=4543450602649657&ev=PageView&noscript=1"
-    /></noscript>
     <!-- End Meta Pixel Code -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -454,6 +485,54 @@
         html { scroll-behavior: auto; }
         .btn-shop { transition: none; }
       }
+
+      /* ---------- Cookie consent banner (UK visitors only) ---------- */
+      /* Top-fixed so it never covers the sticky shop bar. Shown only
+         to UK visitors with no stored choice; hidden attribute hides
+         it until the script removes it (no display rule here, so the
+         UA stylesheet's [hidden] display:none still applies). */
+      .ua1-cookie-banner {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 200;
+        background: var(--bar-bg);
+        border-bottom: 1px solid var(--gold-deep);
+        padding: 14px 20px calc(14px + env(safe-area-inset-top));
+      }
+      .ua1-cookie-banner p {
+        max-width: 1120px;
+        margin: 0 auto 10px;
+        color: var(--ink-soft);
+        font-size: 0.92rem;
+        line-height: 1.45;
+      }
+      .ua1-cookie-buttons {
+        max-width: 1120px;
+        margin: 0 auto;
+        display: flex;
+        gap: 10px;
+      }
+      .ua1-cookie-buttons button {
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+        border-radius: 6px;
+        padding: 9px 22px;
+        min-height: 44px;
+      }
+      #ua1-cookie-accept {
+        background: linear-gradient(180deg, var(--gold-bright), var(--gold) 55%, var(--gold-deep));
+        border: 1px solid var(--gold-deep);
+        color: #1c0f00;
+      }
+      #ua1-cookie-decline {
+        background: transparent;
+        border: 1px solid var(--gold);
+        color: var(--gold-bright);
+      }
+      #ua1-cookie-decline:hover { background: rgba(227, 179, 78, 0.16); }
     </style>
   </head>
   <body>
@@ -633,6 +712,17 @@
         <a class="btn-shop" href="https://www.amazon.com/dp/B0GHJ59SCV" target="_blank" rel="noopener">Read or Listen</a>
       </div>
     </div>
+    <!-- Cookie consent banner: UK visitors only, until they choose.
+         US visitors never see it. Accept loads the Meta Pixel;
+         Decline (or no choice) means no Pixel event ever fires.
+         The UK tag swap and GBP prices above run regardless. -->
+    <div id="ua1-cookie-banner" class="ua1-cookie-banner" hidden>
+      <p>We use cookies to measure how our ads perform. Accept to help us see which ads bring readers here — or decline and browse as normal.</p>
+      <div class="ua1-cookie-buttons">
+        <button type="button" id="ua1-cookie-accept">Accept</button>
+        <button type="button" id="ua1-cookie-decline">Decline</button>
+      </div>
+    </div>
     <script>
     // Swap Book 1 Amazon links for the per-ad Amazon Attribution tag, when the
     // visitor arrived from a Meta ad (?ad=A, ?ad=B, ?ad=C or ?ad=D). Tags from the
@@ -657,12 +747,18 @@
     // UK visitor detection (static page: timezone + locale). ?uk=1 forces the UK
     // journey, ?uk=0 forces the US journey — for testing the UK rendering.
     var ukParam = (new URLSearchParams(window.location.search).get('uk') || '');
+    // UK detection lives in the <head> Pixel block (window.ua1IsUK);
+    // recompute here only if that block is absent.
     var isUK = false;
-    try {
-      var tz = (window.Intl && Intl.DateTimeFormat().resolvedOptions().timeZone) || '';
-      var langs = (((navigator.languages || []).join(' ') + ' ' + (navigator.language || '')).toLowerCase());
-      isUK = tz === 'Europe/London' || langs.indexOf('en-gb') !== -1;
-    } catch (e) {}
+    if (typeof window.ua1IsUK !== 'undefined') {
+      isUK = window.ua1IsUK;
+    } else {
+      try {
+        var tz = (window.Intl && Intl.DateTimeFormat().resolvedOptions().timeZone) || '';
+        var langs = (((navigator.languages || []).join(' ') + ' ' + (navigator.language || '')).toLowerCase());
+        isUK = tz === 'Europe/London' || langs.indexOf('en-gb') !== -1;
+      } catch (e) {}
+    }
     if (ukParam === '1') isUK = true;
     if (ukParam === '0') isUK = false;
     var adParam = (new URLSearchParams(window.location.search).get('ad') || '').toUpperCase();
@@ -700,6 +796,34 @@
         link.setAttribute('href', adTags[adParam]);
       });
     }
+    // Cookie consent for UK visitors, added 27 Nov 2026 (Pixel consent fix).
+    // US visitors never see the banner: the Pixel already loaded in <head>.
+    // UK visitors see it until they choose; the choice is stored in
+    // localStorage. Accept loads the Pixel (PageView + ViewContent fire
+    // then); Decline — or no choice — means fbq is never initialised and
+    // the click handlers below are no-ops (they return unless window.fbq
+    // exists, and fbq is only ever defined by ua1InitPixel). The UK tag
+    // swap and GBP prices above run regardless of consent.
+    (function () {
+      if (!isUK) return;
+      var stored = null;
+      try { stored = window.localStorage && localStorage.getItem('ua1_pixel_consent'); } catch (e) {}
+      if (stored === 'accepted' || stored === 'declined') return;
+      var banner = document.querySelector('#ua1-cookie-banner');
+      if (!banner) return;
+      banner.hidden = false;
+      var acceptBtn = document.querySelector('#ua1-cookie-accept');
+      if (acceptBtn) acceptBtn.addEventListener('click', function () {
+        try { if (window.localStorage) localStorage.setItem('ua1_pixel_consent', 'accepted'); } catch (e) {}
+        banner.hidden = true;
+        if (typeof window.ua1InitPixel === 'function') window.ua1InitPixel();
+      });
+      var declineBtn = document.querySelector('#ua1-cookie-decline');
+      if (declineBtn) declineBtn.addEventListener('click', function () {
+        try { if (window.localStorage) localStorage.setItem('ua1_pixel_consent', 'declined'); } catch (e) {}
+        banner.hidden = true;
+      });
+    })();
     // Lead tracking, revised 27 Nov 2026 (ChatGPT review):
     // "Lead" fires ONLY on the first Book 1 Kindle/KU button click per visit.
     // Audible clicks and Book 2 clicks are recorded as separate custom events
