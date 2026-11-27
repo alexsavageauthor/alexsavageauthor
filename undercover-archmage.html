@@ -643,8 +643,59 @@
       C: 'https://www.amazon.com/dp/B0GHJ59SCV?maas=maas_adg_2563F9A21E248351CC1A51D1A159D66A_afap_abs&ref_=aa_maas&tag=maas',
       D: 'https://www.amazon.com/dp/B0GHJ59SCV?maas=maas_adg_6670D83C853C455D26531B3ADD63E55F_afap_abs&ref_=aa_maas&tag=maas'
     };
+    // UK marketplace tags, added 27 Nov 2026 (UK journey rebuild). Same campaign
+    // name "Undercover Archmage Book 1", UK entity ENTITY2IJLOY0NQEJMY, UK
+    // Attribution campaign ID 585360725873944280; product B0GHJ59SCV (£3.75).
+    var ukAdTags = {
+      A: 'https://www.amazon.co.uk/dp/B0GHJ59SCV?maas=maas_adg_66FD10DA765812E7F008D2FBA25E2F3E_afap_abs&ref_=aa_maas&tag=maas',
+      B: 'https://www.amazon.co.uk/dp/B0GHJ59SCV?maas=maas_adg_28619521F35EAF1016179EF46B085F9F_afap_abs&ref_=aa_maas&tag=maas',
+      C: 'https://www.amazon.co.uk/dp/B0GHJ59SCV?maas=maas_adg_180859BFE2C3985217F103F5C60B2FFB_afap_abs&ref_=aa_maas&tag=maas',
+      D: 'https://www.amazon.co.uk/dp/B0GHJ59SCV?maas=maas_adg_A954B5CE957CDC7B1EC133CAF3DFD659_afap_abs&ref_=aa_maas&tag=maas'
+    };
+    var ukBook1 = 'https://www.amazon.co.uk/dp/B0GHJ59SCV';
+    var ukBook2 = 'https://www.amazon.co.uk/dp/B0GHYNL3JF';
+    // UK visitor detection (static page: timezone + locale). ?uk=1 forces the UK
+    // journey, ?uk=0 forces the US journey — for testing the UK rendering.
+    var ukParam = (new URLSearchParams(window.location.search).get('uk') || '');
+    var isUK = false;
+    try {
+      var tz = (window.Intl && Intl.DateTimeFormat().resolvedOptions().timeZone) || '';
+      var langs = (((navigator.languages || []).join(' ') + ' ' + (navigator.language || '')).toLowerCase());
+      isUK = tz === 'Europe/London' || langs.indexOf('en-gb') !== -1;
+    } catch (e) {}
+    if (ukParam === '1') isUK = true;
+    if (ukParam === '0') isUK = false;
     var adParam = (new URLSearchParams(window.location.search).get('ad') || '').toUpperCase();
-    if (adTags[adParam]) {
+    if (isUK) {
+      // UK visitor: GBP prices, no audio price (UK Audible price unverified),
+      // amazon.co.uk links with the matching UK Attribution tag.
+      var kuPrice = document.querySelector('.ku-price');
+      if (kuPrice) kuPrice.textContent = '£0.00';
+      var audiblePrice = document.querySelector('.audible-price');
+      if (audiblePrice) audiblePrice.style.display = 'none';
+      var audibleBtn = document.querySelector('.btn-audible');
+      if (audibleBtn) audibleBtn.textContent = 'Listen on Audible';
+      var audibleStrong = document.querySelector('.audible-copy strong');
+      if (audibleStrong) audibleStrong.textContent = 'Get the full audiobook with Audible membership';
+      var ctaNote = document.querySelector('.cta-note');
+      if (ctaNote) ctaNote.textContent = 'Ebook included with Kindle Unlimited. Audiobook with Audible membership, via the Amazon listing. Prices checked against the Amazon listing, November 27, 2026.';
+      var barSub = document.querySelector('.bar-sub');
+      if (barSub) barSub.innerHTML = 'Ebook £0.00 with Kindle Unlimited <span>· Audiobook on Audible</span>';
+      document.querySelectorAll('.detail dt').forEach(function (dt) {
+        if (dt.textContent.trim() === 'Read or listen') {
+          var dd = dt.parentElement && dt.parentElement.querySelector('dd');
+          if (dd) dd.textContent = 'Ebook free with KU · Audiobook on Audible';
+        }
+      });
+      var metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute('content', 'Undercover Archmage: A Magic Academy Adventure — Ravenwick Academy Book 1 by Alex Savage. They have fireballs. He has a Glock. Ebook free with Kindle Unlimited. Audiobook on Audible with membership.');
+      document.querySelectorAll('a[href*="amazon.com/dp/B0GHJ59SCV"]').forEach(function (link) {
+        link.setAttribute('href', ukAdTags[adParam] || ukBook1);
+      });
+      document.querySelectorAll('a[href*="amazon.com/dp/B0GHYNL3JF"]').forEach(function (link) {
+        link.setAttribute('href', ukBook2);
+      });
+    } else if (adTags[adParam]) {
       document.querySelectorAll('a[href*="amazon.com/dp/B0GHJ59SCV"]').forEach(function (link) {
         link.setAttribute('href', adTags[adParam]);
       });
@@ -661,7 +712,8 @@
       ua1LeadFired = true;
       try { if (window.sessionStorage) sessionStorage.setItem('ua1_lead_fired', '1'); } catch (e) {}
     }
-    document.querySelectorAll('a[href*="amazon.com/dp/"]').forEach(function (link) {
+    // Selector covers amazon.com and amazon.co.uk links (UK journey, 27 Nov 2026).
+    document.querySelectorAll('a[href*="amazon.com/dp/"], a[href*="amazon.co.uk/dp/"]').forEach(function (link) {
       link.addEventListener('click', function () {
         if (!window.fbq) return;
         var href = link.getAttribute('href') || '';
